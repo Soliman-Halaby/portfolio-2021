@@ -1,0 +1,22 @@
+{
+  "name": "portfoliov2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "run-script-os",
+    "deploy": "vercel --prod",
+    "start:win32": "browser-sync start --server --files '**/*.css, **/*.js, **/*.html, !node_modules' --directory --port 7777",
+    "start:darwin:linux": "browser-sync start --server --files '**/*.css, **/*.js, **/*.html, !node_modules' --directory --port 7777"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "run-script-os": "^1.0.3"
+  },
+  "dependencies": {
+    "gsap": "^3.9.0",
+    "vercel": "^23.1.2"
+  }
+}
