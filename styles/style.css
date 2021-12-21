@@ -1,0 +1,344 @@
+@font-face {
+  font-family: "Romie Regular";
+  src: url("../assets/fonts/Romie-Regular.woff") format("woff");
+}
+
+:root {
+  --darkGrey: #1e1e1e;
+  --lightGrey: #e5e5e5;
+  --yellow: #d7ff39;
+  --white: #ffffff;
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+/******
+
+Hide Scrollbar
+
+******/
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.projectDisplayContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/******
+
+Variables 
+
+******/
+
+.title {
+  color: var(--lightGrey);
+  font-size: 16vmin;
+  font-family: "Romie Regular";
+  /* line-height: 90px; */
+  line-height: 11vmin;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.description {
+  font-size: 8vmin;
+  line-height: 6vmin;
+  font-family: "Romie Regular";
+  color: var(--lightGrey);
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 4vmin;
+  align-self: center;
+  padding-right: 25vmin;
+}
+
+body {
+  background: var(--darkGrey);
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-y: none;
+}
+
+.navBar {
+  max-width: 100vw;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  margin-top: 5vmin;
+  /* background: red; */
+  border-bottom: 1px solid var(--lightGrey);
+  border-top: 1px solid var(--lightGrey);
+  position: fixed;
+  z-index: 1;
+}
+
+.navBar .navBarLogo {
+  padding-left: 2vmin;
+}
+
+.navBar .navBarItems {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.navBar .navBarItems a {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  color: var(--lightGrey);
+  text-decoration: none;
+  /* height: 4.5rem; */
+  font-weight: 300;
+  font-size: 1.5rem;
+  height: 100%;
+  border-right: 1px solid var(--lightGrey);
+  /* background: blue; */
+  line-height: 4.5rem;
+  /* margin: 0px 1vmin; */
+  padding: 0 2.5vmin;
+}
+
+.navBar .navBarItems a:first-child {
+  border-left: 1px solid var(--lightGrey);
+}
+
+.navBar .navBarItems a:last-child {
+  border-right: 0px;
+}
+
+.navHrefContainer {
+  width: 10vmin;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+/******
+
+ASSIDE BAR
+
+******/
+
+.assideBar {
+  /* right: clamp(20vmin, 30vmin, 40vmin); */
+
+  width: 3.5vmax;
+  /* width: clamp(3.5vmax, 4.5vmax, 3.5vmax); */
+  /* min-width: 6vmin; */
+  /* max-width: 4vmax; */
+  height: calc(95vh - 5vmin - 4.5rem);
+  background: var(--darkGrey);
+  margin-left: 5vmin;
+  position: fixed;
+  bottom: 5vh;
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--lightGrey);
+  border-right: 1px solid var(--lightGrey);
+  border-top: 1px solid var(--lightGrey);
+  z-index: 1;
+}
+
+.assideBar span {
+  color: var(--lightGrey);
+  font-size: 1.6rem;
+  padding: 1vmin 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: "Romie Regular";
+}
+
+.assideBar span.selected {
+  color: var(--yellow);
+}
+
+/*******
+
+Projects Sections
+
+********/
+
+.projectDisplayContainer {
+  position: fixed;
+  /* margin-left: calc(5vmin + 4.5rem);
+    padding-top: calc(5vmin + 3.5vmax); */
+  top: auto !important;
+  left: auto !important;
+  bottom: 5vh !important;
+  right: 0 !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: calc(100vw - 5vmin - 3.5vmax);
+  /* background-color: pink; */
+  overflow: hidden;
+  height: calc(95vh - 5vmin - 4.5rem);
+  /* z-index: -1; */
+}
+.projectDisplay {
+  /* width: 100%; */
+  width: calc(100vw - 5vmin - 3.5vmax);
+  /* width: 100vw; */
+  /* width: calc(100vw - 3.5vmax); */
+  /* background-color: pink; */
+  /* height: calc(95vh - 5vmin - 4.5rem); */
+  /* padding-top: 100px; */
+  /* position: fixed; */
+  /* margin-left: calc(5vmin + 4.5rem);
+  padding-top: calc(5vmin + 3.5vmax); */
+  /* bottom: 5vh;
+  right: 0; */
+  border-bottom: 1px solid var(--lightGrey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row;
+  flex-wrap: nowrap; */
+  /* overflow: scroll; */
+}
+
+.projectDisplayContainer .projectDisplay:last-child {
+  /* background: red; */
+  padding-right: 15vmax;
+}
+
+.project {
+  width: calc(100vw - 5vmin - 3.5vmax);
+  min-width: 30vmin;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 80%; */
+  align-items: center;
+  /* background: yellow; */
+  position: relative;
+  overflow: hidden;
+}
+
+.project h1 {
+  z-index: 2;
+  text-transform: uppercase;
+}
+.project .projectImage {
+  position: absolute;
+  top: 18vmin;
+  /* right: 40vmin; */
+  right: clamp(20vmin, 30vmin, 40vmin);
+  z-index: -1;
+  /* width: 80vmin; */
+  max-width: 45vmin;
+}
+
+.projectDetails {
+  display: flex;
+  /* flex-direction: row; */
+  padding-right: 10vmin;
+  /* align-self: flex-start; */
+  font-family: neue-haas-grotesk-display, sans-serif;
+  color: var(--lightGrey);
+}
+
+.detail {
+  margin: 0.25rem;
+}
+
+.detail a {
+  text-decoration: none;
+  color: var(--lightGrey);
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* Grid for the projects details */
+.projectGrid {
+  display: grid;
+  margin-top: 8vmin;
+  grid-template-columns: repeat(1, 60px 35vmin);
+}
+
+.projectGrid .firstDetail {
+  /* padding: 0; */
+  /* width: 0.25rem; */
+  width: 5rem;
+  display: inline-block;
+  font-weight: 500;
+  /* margin-right: 3.5vmin; */
+}
+
+.projectGrid span {
+  font-weight: 300;
+  margin: 0;
+}
+
+.projectGrid .italic {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/******
+
+Contact Section 
+
+******/
+
+.contactSection .description {
+  padding-left: 50vmin;
+}
+.contact {
+  display: flex;
+  align-self: center;
+  /* justify-self: center; */
+  /* padding-left: 60vmin; */
+  text-decoration: none;
+}
+
+.myInfo {
+  width: 70%;
+  /* align-self: flex-end; */
+  position: absolute;
+  bottom: 2vmin;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: neue-haas-grotesk-display, sans-serif;
+}
+
+.findMe {
+  color: var(--lightGrey);
+  font-weight: 300;
+  margin-right: 4vmin;
+}
+
+/* .myInfo .social {
+  display: flex;
+  flex-direction: row;
+} */
+.myInfo a {
+  text-decoration: none;
+  color: var(--lightGrey);
+  font-weight: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 1vmin;
+}
+
+.myInfo img {
+  width: 25px;
+  transform: translateY(3px);
+}
