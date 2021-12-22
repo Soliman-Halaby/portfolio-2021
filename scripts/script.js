@@ -1,5 +1,8 @@
 // import { gsap } from "gsap";
 
+// const assideItems = document.querySelectorAll(".assideBar span");
+const assideItem = document.querySelector(".assideBar span");
+
 gsap.registerPlugin(ScrollTrigger);
 
 let sections = gsap.utils.toArray(".projectDisplay");
@@ -12,26 +15,26 @@ gsap.to(sections, {
     pin: true,
     scrub: 1,
     // snap: 1 / (sections.length - 1),
-    // base vertical scrolling on how wide the container is so it feels more natural.
     end: "+=8000",
     ease: "power2.easeOut",
   },
 });
-// console.log("coucou");
-const assideItems = document.querySelectorAll(".assideBar a");
-const assideItem = document.querySelector(".assideBar span");
 
+sections[5].style.backgroundColor = "blue";
+// Get dom - nav elements to scroll horizontaly using nav bar
+const container = document.querySelector(".projectDisplayContainer");
+const projectDisplays = [...document.querySelectorAll(".projectDisplay")];
+const navLinks = [...document.querySelectorAll(".navBarItems a")];
+
+// Positions of elements in DOM
 const sectionPosition = {
   about: 0,
   work: 1,
   contact: sections.length,
 };
 
-const container = document.querySelector(".projectDisplayContainer");
-const projectDisplays = [...document.querySelectorAll(".projectDisplay")];
-const navLinks = [...document.querySelectorAll(".navBarItems a")];
-
 container.style.backgroundColor = "red";
+// projectDisplays[sections.length].style.backgroundColor = "blue";
 navLinks.map((navLink) => {
   navLink.addEventListener("click", () => {
     // console.log(
@@ -57,11 +60,13 @@ let observer = new IntersectionObserver(
         // Get Scroll Id
         let scrollId = observable.target.querySelector("scroll-page").id;
         // Remove class to all elements
-        for (let k = 0; k < assideItems.length; k++) {
-          assideItems[k].classList.remove("selected");
-        }
+        // for (let k = 0; k < assideItems.length; k++) {
+        //   assideItems[k].classList.remove("selected");
+        // }
         // Add class on element depending on scroll id
         // assideItems[scrollId - 1].classList.add("selected");
+
+        // Change text on elements depending on scroll id
         assideItem.textContent = assideArray[scrollId - 1];
       }
     });
