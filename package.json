@@ -1,22 +1,19 @@
 {
-  "name": "portfoliov2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
+  "name": "portfolio",
+  "version": "0.0.0",
   "scripts": {
-    "start": "run-script-os",
-    "deploy": "vercel --prod",
-    "start:win32": "browser-sync start --server --files '**/*.css, **/*.js, **/*.html, !node_modules' --directory --port 7777",
-    "start:darwin:linux": "browser-sync start --server --files '**/*.css, **/*.js, **/*.html, !node_modules' --directory --port 7777"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.14",
-    "run-script-os": "^1.0.3"
+    "vite": "^2.7.2"
   },
   "dependencies": {
-    "gsap": "^3.9.0",
+    "easing-js": "^1.1.2",
+    "gsap": "^3.9.1",
+    "smooth-scrollbar": "^8.7.4",
     "vercel": "^23.1.2"
   }
 }
