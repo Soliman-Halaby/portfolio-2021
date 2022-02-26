@@ -52,6 +52,6 @@ followArea.forEach((area) => {
   // console.log(area);
   area.addEventListener("mousemove", hoverCursor);
 });
-// el.addEventListener("mousemove", hoverCursor);
+body.addEventListener("mousemove", hoverCursor);
 
 body.addEventListener("mousemove", customCursorFixed);
