@@ -13,8 +13,77 @@
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
+  cursor: none;
+}
+body::before {
+  content: "";
+  position: fixed;
+  transform-origin: 100% 0;
+  background: var(--yellow);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  z-index: 3;
+  transition: transform 0.25s;
 }
 
+body.transition::before {
+  transform: scaleX(1);
+}
+.project2 {
+  /* background: red; */
+}
+
+.projectContent {
+  /* background: blue; */
+  height: 100%;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.cursorPointer,
+.cursorElement {
+  /* display: none; */
+  /* opacity: 0; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.customCursorFixed {
+  width: 15px;
+  height: 15px;
+  background: var(--yellow);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 3;
+}
+
+.cursorElementContainer {
+  opacity: 0%;
+  transform: scale(1) !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.show {
+  display: block;
+}
+
+.customCursor {
+  cursor: none;
+  height: 100%;
+}
+.cursorElement {
+  /* animation: 15s infiniteRotate infinite; */
+  transition: all 0.05s linear;
+}
 /******
 
 Hide Scrollbar
@@ -46,6 +115,9 @@ Variables
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 0;
+  margin-top: 10vmin;
+  display: flex;
+  flex-direction: column;
 }
 
 .description {
@@ -57,10 +129,13 @@ Variables
   margin: 0;
   margin-top: 4vmin;
   align-self: center;
-  padding-right: 25vmin;
+  display: flex;
+  flex-direction: column;
+  /* padding-right: 25vmin; */
 }
 
 body {
+  cursor: none;
   background: var(--darkGrey);
   padding: 0;
   height: 100%;
@@ -69,6 +144,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
 
 .navBar {
@@ -107,7 +183,12 @@ body {
   /* background: blue; */
   line-height: 4.5rem;
   /* margin: 0px 1vmin; */
-  padding: 0 2.5vmin;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.menuTarget {
+  padding: 0px 2.5vmin;
 }
 
 .navBar .navBarItems a:first-child {
@@ -119,16 +200,92 @@ body {
 }
 
 .navHrefContainer {
-  width: 10vmin;
   display: flex;
-  justify-content: center;
-  height: 100%;
+}
+
+.navHrefContainer span {
+  /* width: 10vmin; */
+  display: block;
+  pointer-events: none;
+  text-align: center;
+  /* height: 100%; */
+}
+
+.menuTarget {
+  position: relative;
+}
+.menuTarget > .navHrefContainer:nth-child(1) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.7s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+.menuTarget > .navHrefContainer:nth-child(2) span {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: 0.4s;
+  transition-delay: calc(0.05s * var(--index));
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.menuTarget:hover > .navHrefContainer:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.menuTarget:hover > .navHrefContainer:nth-child(2) span {
+  transform: translate3d(0, 0%, 0) rotateX(0deg);
+}
+.linkContainer {
+  margin-top: 2vmin;
+  position: relative;
+}
+
+.rotating {
+  position: absolute;
+  animation: 15s infiniteRotate linear infinite;
+  /* top: 0;
+  right: 0; */
+}
+
+.linkContainer img:nth-child(1) {
+  position: absolute;
+  left: 50%;
+  top: 3vmin;
+}
+/* 
+.linkContainer:hover img:nth-child(2) {
+  animation-name: fastRotate;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+} */
+
+.skewElem {
+  transition: 0.15s ease !important;
 }
 /******
 
 ASSIDE BAR
 
 ******/
+
+.translateAsside {
+  transform: translateX(3.5vmax);
+  transition: 3s ease;
+}
+
+.translateAssideTwo {
+  transform: translateX(7vmax);
+  transition: 3s ease;
+}
+/* .translateDown {
+  transform: translateX(0);
+  transition: 3s ease;
+} */
 
 .assideBar {
   /* right: clamp(20vmin, 30vmin, 40vmin); */
@@ -141,26 +298,48 @@ ASSIDE BAR
   background: var(--darkGrey);
   margin-left: 5vmin;
   position: fixed;
+  overflow: hidden;
   bottom: 5vh;
   writing-mode: tb-rl;
   transform: rotate(180deg);
   text-orientation: mixed;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   border-left: 1px solid var(--lightGrey);
   border-right: 1px solid var(--lightGrey);
   border-top: 1px solid var(--lightGrey);
   z-index: 1;
 }
 
+.assideGlobalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .assideBar span {
   color: var(--lightGrey);
   font-size: 1.6rem;
-  padding: 1vmin 10px;
+  width: 3.5vmax;
+  display: flex;
+  align-items: center;
+  padding: 1vmin 0px;
+  /* padding: 1vmin 1vmax; */
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 300;
   font-family: "Romie Regular";
+}
+
+.romie {
+  font-family: "Romie Regular";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  display: block;
+  transform: translate(-50%, -50%);
 }
 
 .assideBar span.selected {
@@ -298,7 +477,7 @@ Contact Section
 ******/
 
 .contactSection .description {
-  padding-left: 50vmin;
+  padding-left: 20vmax;
 }
 .contact {
   display: flex;
@@ -319,6 +498,10 @@ Contact Section
   font-family: neue-haas-grotesk-display, sans-serif;
 }
 
+.myInfo a:hover img {
+  transition: 0.3s ease;
+  transform: translateY(-3px);
+}
 .findMe {
   color: var(--lightGrey);
   font-weight: 300;
@@ -342,4 +525,39 @@ Contact Section
 .myInfo img {
   width: 25px;
   transform: translateY(3px);
+}
+
+/********
+
+KEYFRAMES
+
+********/
+
+@keyframes infiniteRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fastRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes translateAsside {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(3.5vmax);
+  }
 }
