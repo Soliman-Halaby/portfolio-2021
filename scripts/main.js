@@ -49,14 +49,38 @@ menuTargets.forEach((item) => {
 });
 
 ////// page transition on click
+
+// projectContents.forEach((element) => {
+//   element.addEventListener("click", () => {
+//     document.body.classList.add("transition");
+//   });
+// });
+
+// const localStorage = window.localStorage;
+
+// localStorage.setItem("transitionClass", "transition");
+
+// const transitionClass = localStorage.getItem("transitionClass");
+// console.log(transitionClass);
+
+// document.body.classList.remove("transition");
 window.onload = () => {
+  document.body.classList.add("transition");
+  // document.body.classList.remove("transition");
   // body.classList.remove("transition");
-  // body.classList.add("transition");
-  pageTransition();
   setTimeout(function () {
-    body.classList.remove("transition");
+    pageTransition();
+  }, 1000);
+  setTimeout(function () {
+    document.body.classList.remove("transition");
   }, 500);
 };
+
+projectContents.forEach((element) => {
+  element.addEventListener("click", () => {
+    document.body.classList.add("transition");
+  });
+});
 
 function pageTransition() {
   projectContents.forEach((element) => {

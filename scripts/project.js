@@ -62,26 +62,34 @@ let projectsSection = document.querySelectorAll(".project");
 //   observerElement.observe(project);
 // });
 
+const menuTargets = [...document.querySelectorAll(".menuTarget")];
+
+menuTargets.forEach((element) => {
+  element.addEventListener("click", () => {
+    document.body.classList.add("transition");
+  });
+});
+
 const projectSection = document.querySelector("#projectSection");
 
-let slides = gsap.utils.toArray(".projectSectionScroll");
+let slides = gsap.utils.toArray(".slide");
 
-// gsap.to(slides, {
-//   xPercent: -100 * (slides.length - 1),
-//   ease: "none",
-//   scrollTrigger: {
-//     markers: true,
-//     trigger: "#projectSection",
-//     pin: true,
-//     start: "top 110",
-//     end: "bottom 0",
-//     // start: "top top",
-//     scrub: 1,
-//     // end: "3000",
-//     // snap: 1 / (slides.length - 1),
-//     // end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
+gsap.to(slides, {
+  xPercent: -100 * (slides.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    markers: true,
+    trigger: "#projectSection",
+    pin: true,
+    start: "top 110",
+    // end: "bottom 0",
+    // start: "top top",
+    scrub: 1,
+    // end: "3000",
+    // snap: 1 / (slides.length - 1),
+    end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
 
-//     // end: "+=9000",
-//     ease: "power2.easeOut",
-//   },
-// });
+    // end: "+=9000",
+    ease: "power2.easeOut",
+  },
+});
