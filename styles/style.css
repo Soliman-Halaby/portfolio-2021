@@ -307,18 +307,10 @@ ASSIDE BAR
   transform: translateX(7vmax);
   transition: 3s ease;
 }
-/* .translateDown {
-  transform: translateX(0);
-  transition: 3s ease;
-} */
 
 .assideBar {
-  /* right: clamp(20vmin, 30vmin, 40vmin); */
-
+  left: 0;
   width: 3.5vmax;
-  /* width: clamp(3.5vmax, 4.5vmax, 3.5vmax); */
-  /* min-width: 6vmin; */
-  /* max-width: 4vmax; */
   height: calc(95vh - 5vmin - 4.5rem);
   background: var(--darkGrey);
   margin-left: 5vmin;
