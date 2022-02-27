@@ -33,25 +33,29 @@ let customCursorFixed = (e) => {
 // ************
 
 followArea.forEach(function (el) {
-  el.addEventListener("mouseover", () => {
+  el.addEventListener("mouseenter", () => {
+    // Animation to scale and up opacity
     gsap.to(cursorContainer, 0.25, {
       scale: 1,
       autoAlpha: 1,
     });
   });
 
-  el.addEventListener("mouseout", () => {
+  el.addEventListener("mouseleave", () => {
     gsap.to(cursorContainer, 0.25, {
+      // Animation opacity 0 and scale 0.5
       scale: 0.5,
       autoAlpha: 0,
     });
+    console.log("mouseout");
   });
 });
 
 followArea.forEach((area) => {
-  // console.log(area);
   area.addEventListener("mousemove", hoverCursor);
 });
+
+// Events to make tu cursor follow even if not showing
 body.addEventListener("mousemove", hoverCursor);
 
 body.addEventListener("mousemove", customCursorFixed);
