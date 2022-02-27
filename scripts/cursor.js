@@ -16,6 +16,9 @@ let hoverCursor = (e) => {
       top: e.clientY + 85,
     },
   });
+  if (!cursorContainer) {
+    return;
+  }
   cursorContainer.style.display = "block";
 };
 
