@@ -19,7 +19,7 @@ let hoverCursor = (e) => {
   if (!cursorContainer) {
     return;
   }
-  cursorContainer.style.display = "block";
+  // console.log("tst");
 };
 
 ///// main cursor
@@ -55,6 +55,7 @@ followArea.forEach(function (el) {
 });
 
 followArea.forEach((area) => {
+  // cursorContainer.style.display = "block";
   area.addEventListener("mousemove", hoverCursor);
 });
 
