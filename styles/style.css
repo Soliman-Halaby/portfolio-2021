@@ -66,7 +66,6 @@ section {
 
 .cursorPointer,
 .cursorElement {
-  /* display: none; */
   /* opacity: 0; */
   position: absolute;
   top: 50%;
@@ -74,10 +73,10 @@ section {
   transform: translate(-50%, -50%);
   z-index: 3;
 }
-
-.customRelative {
+/* 
+.cur .customRelative {
   position: relative;
-}
+} */
 .customCursorFixed {
   width: 15px;
   height: 15px;
@@ -90,7 +89,8 @@ section {
 }
 
 .cursorElementContainer {
-  opacity: 100%;
+  opacity: 0%;
+  /* display: none; */
   transform: scale(1);
   position: fixed;
   top: 50%;
@@ -518,16 +518,25 @@ Contact Section
   font-family: neue-haas-grotesk-display, sans-serif;
 }
 
-.myInfo a:hover img {
+/* .myInfo a:hover img {
   transition: 0.3s ease;
   transform: translateY(-3px);
-}
+} */
 .findMe {
   color: var(--lightGrey);
   font-weight: 300;
   margin-right: 4vmin;
 }
 
+.child {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.contactLinkContainer {
+  overflow: hidden;
+}
 /* .myInfo .social {
   display: flex;
   flex-direction: row;
@@ -539,12 +548,19 @@ Contact Section
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+  transition: 0.4s transform;
   margin: 0px 1vmin;
 }
 
+.myInfo a:hover {
+  transform: translateY(-100%);
+  transition: 0.4s transform;
+}
 .myInfo img {
   width: 25px;
-  transform: translateY(3px);
+  /* transform: translateY(8px);
+  transition: 0.3s ease; */
 }
 
 /********
