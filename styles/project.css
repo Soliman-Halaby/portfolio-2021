@@ -70,6 +70,7 @@ First section project display title
 
 .projectTitle {
   font-size: 16vmin;
+
   display: inline-block !important;
   font-family: "Romie Regular";
   color: var(--lightGrey);
@@ -157,6 +158,8 @@ Second section project display content
 .projectPageContent {
   align-items: flex-start;
   margin-left: 30vmin;
+  height: calc(95vh - 5vmin - 4.5rem) !important;
+  width: 100%;
 }
 
 .project .projectImage {
@@ -182,6 +185,8 @@ Second section project display content
 }
 
 .projectScroll {
+  height: calc(95vh - 5vmin - 4.5rem) !important;
+
   /* overflow: hidden; */
 }
 .descriptionDetail {
