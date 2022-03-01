@@ -72,7 +72,7 @@ menuTargets.forEach((element) => {
 
 const projectSection = document.querySelector(".projectDisplayRow");
 
-let slides = gsap.utils.toArray(".projectScroll");
+let slides = gsap.utils.toArray(".projectDisplay");
 
 gsap.to(slides, {
   xPercent: -100 * (slides.length - 1),
