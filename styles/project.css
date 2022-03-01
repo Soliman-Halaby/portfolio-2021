@@ -30,6 +30,8 @@ First section project display title
   border-bottom: 0;
 }
 .projectDisplayContainer {
+  flex-direction: column;
+  overflow-y: scroll !important;
   border-bottom: 1px solid var(--lightGrey);
 }
 .projectDisplayContainer .projectDisplay:last-child {
@@ -105,6 +107,14 @@ Second section project display content
 
 ******/
 
+.slides {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 500%;
+  align-items: center;
+}
+
 #projectSection {
   display: flex;
   flex-direction: row;
@@ -117,11 +127,12 @@ Second section project display content
   bottom: 0 !important;
   right: 0 !important;
   display: flex;
+  position: relative;
   flex-direction: row;
   flex-wrap: nowrap;
 }
 
-#projectSection h1 {
+.projectPageContent h1 {
   font-size: 7vmin;
   line-height: 6.5vmin;
   text-transform: initial;
@@ -143,15 +154,36 @@ Second section project display content
   height: 100%;
 }
 
+.projectPageContent {
+  align-items: flex-start;
+  margin-left: 30vmin;
+}
+
 .project .projectImage {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   max-width: 100%;
   object-fit: contain;
   top: 0px;
-  right: auto;
+  right: 40vmin;
+  /* right: auto; */
 }
 
+.projectContent,
+.projectPageContent {
+  position: relative;
+}
+
+.projectDisplayRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* overflow: hidden; */
+}
+
+.projectScroll {
+  /* overflow: hidden; */
+}
 .descriptionDetail {
   font-size: 16px;
   color: var(--lightGrey);
