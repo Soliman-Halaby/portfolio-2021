@@ -70,16 +70,16 @@ menuTargets.forEach((element) => {
   });
 });
 
-const projectSection = document.querySelector("#projectSection");
+const projectSection = document.querySelector(".projectDisplayRow");
 
-let slides = gsap.utils.toArray(".slide");
+let slides = gsap.utils.toArray(".projectScroll");
 
 gsap.to(slides, {
   xPercent: -100 * (slides.length - 1),
   ease: "none",
   scrollTrigger: {
     markers: true,
-    trigger: "#projectSection",
+    trigger: ".projectDisplayRow",
     pin: true,
     start: "top 110",
     // end: "bottom 0",
