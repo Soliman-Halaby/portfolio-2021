@@ -72,7 +72,7 @@ menuTargets.forEach((element) => {
 
 const projectSection = document.querySelector(".projectDisplayRow");
 
-let slides = gsap.utils.toArray(".projectDisplay");
+let slides = gsap.utils.toArray(".projectScroll");
 
 gsap.to(slides, {
   xPercent: -100 * (slides.length - 1),
@@ -80,16 +80,17 @@ gsap.to(slides, {
   scrollTrigger: {
     markers: true,
     trigger: ".projectDisplayRow",
+    scroller: ".projectDisplayContainer",
     pin: true,
-    start: "top 110",
-    // end: "bottom 0",
-    // start: "top top",
+    start: "top top",
+    pinSpacing: false,
     scrub: 1,
-    // end: "3000",
-    // snap: 1 / (slides.length - 1),
-    end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
-
-    // end: "+=9000",
+    snap: {
+      snapTo: 1 / (slides.length - 1),
+      inertia: false,
+      duration: { min: 0.1, max: 0.1 },
+    },
+    end: () => "+=" + projectSection.offsetWidth * slides.length,
     ease: "power2.easeOut",
   },
 });
