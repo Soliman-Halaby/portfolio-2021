@@ -178,6 +178,7 @@ Second section project display content
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 300%;
   /* overflow: hidden; */
 }
 

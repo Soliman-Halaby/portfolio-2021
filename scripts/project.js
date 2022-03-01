@@ -1,5 +1,4 @@
 import { gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -11,16 +10,12 @@ const assideContainer = document.querySelector(".assideGlobalContainer");
 const projectTextContent = document.querySelector(".projectTextContent");
 
 let projects = "";
-// console.log(projectTextContent);
 
 projectTitle.forEach((title) => {
-  //   console.log(project.textContent);
   projects += title.textContent;
 });
-console.log(projects);
 ///// add asside text depending on title
 projectTextContent.textContent = projects;
-// console.log(projects.textContent);
 
 // let observerElement = new IntersectionObserver(
 //   function (observables) {
@@ -70,26 +65,37 @@ menuTargets.forEach((element) => {
   });
 });
 
-const projectSection = document.querySelector("#projectSection");
+const projectSection = document.querySelector("#project-slides");
 
-let slides = gsap.utils.toArray(".slide");
+let slides = gsap.utils.toArray("#project-slides .slide");
+
+// ScrollTrigger.refresh()
 
 gsap.to(slides, {
   xPercent: -100 * (slides.length - 1),
   ease: "none",
   scrollTrigger: {
     markers: true,
-    trigger: "#projectSection",
+    trigger: "#project-slides",
+    scroller: ".projectDisplayContainer",
     pin: true,
-    start: "top 110",
-    // end: "bottom 0",
-    // start: "top top",
+    start: "top top",
+    pinSpacing: false,
     scrub: 1,
-    // end: "3000",
-    // snap: 1 / (slides.length - 1),
+    snap: {
+			snapTo: 1 / (slides.length - 1),
+			inertia: false,
+			duration: {min: 0.1, max: 0.1}
+		},
     end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
-
-    // end: "+=9000",
     ease: "power2.easeOut",
   },
 });
+
+// let observer = new IntersectionObserver(
+//   entries => {
+//     console.log(entries);
+//   }
+// );
+
+// observer.observe(projectSection)
