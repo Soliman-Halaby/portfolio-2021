@@ -181,6 +181,7 @@ Second section project display content
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  height: calc(95vh - 5vmin - 4.5rem);
   /* overflow: hidden; */
 }
 
