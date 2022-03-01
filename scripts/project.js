@@ -85,17 +85,6 @@ gsap.to(slides, {
     start: "top top",
     pinSpacing: false,
     scrub: 1,
-<<<<<<< Updated upstream
-    snap: {
-      snapTo: 1 / (slides.length - 1),
-      inertia: false,
-      duration: { min: 0.1, max: 0.1 },
-    },
-    end: () => "+=" + projectSection.offsetWidth * slides.length,
-    ease: "power2.easeOut",
-  },
-});
-=======
     // snap: {
     //   snapTo: 1 / (slides.length - 1),
     //   inertia: false,
@@ -113,4 +102,3 @@ gsap.to(slides, {
 // );
 
 // observer.observe(projectSection)
->>>>>>> Stashed changes
