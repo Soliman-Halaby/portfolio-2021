@@ -11,27 +11,27 @@
     <link rel="stylesheet" href="./styles/about.css">
     <link rel="stylesheet" href="https://use.typekit.net/yrf2wqa.css">
 </head>
-<body>
+<body class="transition">
     <div class="customCursorFixed"></div>
     <div class="navBar">
-        <a href="./index.html">
+        <a href="./index.html" class="menuRedirect">
             <div class="navBarLogo">
                 <img class="" src="./assets/images/logoSoly.svg">
             </div>
         </a>
         <div class=""></div>
         <div class="navBarItems">
-            <a href="./index.html" class="menuTarget" id="l-about">
+            <a href="#" class="menuTarget" id="l-about">
                 <div class="navHrefContainer">
                     <span>About</span>
                 </div>
             </a>
-            <a href="./index.html" class="menuTarget" id="l-work">
+            <a href="./index.html" class="menuTarget menuRedirect" id="l-work">
                 <div class="navHrefContainer">
                     <span>Work</span>
                 </div>
             </a>
-            <a href="./index.html" class="menuTarget" id="l-contact">
+            <a href="./index.html" class="menuTarget menuRedirect" id="l-contact">
                 <div class="navHrefContainer">
                     <span>Contact</span>
                 </div>
@@ -55,17 +55,86 @@
                     <!-- <span class="projectTitle">GTA VIRTUAL <br />MODELING</span> -->
                     <div class="aboutDescription">
                         <p>Hey ! I'm Soliman, a twenty years old fullstack developer. Currently based in Paris, I’m looking an internship as developper in a creative agency!</p>
-                        <span href="." class="scrollDownCta">Scroll down</span>
+                        <div class="scrollDownContainer">
+                            <div class="ctaContainer">
+                                <span class="scrollDownCta">Scroll down</span>
+                            </div>
+                            <div class="ctaContainer childCta">
+                                <span class="scrollDownCta">Scroll down</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="project scrollView">
                 <scroll-page id="2"></scroll-page>
                 <div class="experienceContainer">
-                    <span class="experience">Hetic <span class="borderExperience"></span></span>
+                    <div data-name="hetic" class="experienceCol">
+                        <span class="borderTop"></span>
+                        <div class="experienceRow">
+                            <span class="experience">
+                                Hetic
+                            </span>
+                            <div class="flexDiv"></div>
+                        </div>
+                        <span class="borderExperience"></span>
+                    </div>
+                    <div data-name="tremplin-digital" class="experienceCol">
+                        <span class="borderTop"></span>
+                        <div class="experienceRow">
+                            <span class="experience">
+                                Tremplin Digital
+                            </span>
+                            <div class="flexDiv"></div>
+                        </div>
+                        <span class="borderExperience"></span>
+                    </div>
+                    <div data-name="dreamline-studio" class="experienceCol">
+                        <span class="borderTop"></span>
+                        <div class="experienceRow">
+                            <span class="experience">
+                                Dreamline Studio
+                            </span>
+                            <div class="flexDiv"></div>
+                        </div>
+                        <span class="borderExperience"></span>
+                    </div>
+                    <div data-name="threejs-journey" class="experienceCol">
+                        <span class="borderTop"></span>
+                        <div class="experienceRow">
+                            <span class="experience">
+                                ThreeJS Journey
+                            </span>
+                            <div class="flexDiv"></div>
+                        </div>
+                        <span class="borderExperience"></span>
+                    </div>
+                </div>
+                <div class="experienceContainer experienceFlex">
+                    <!-- <span class="experience">Hetic <span class="borderExperience"></span></span>
                     <span class="experience">Tremplin Digital <span class="borderExperience"></span></span>
                     <span class="experience">Dreamline Studio <span class="borderExperience"></span></span>
-                    <span class="experience">ThreeJS Journey <span class="borderExperience"></span></span>
+                    <span class="experience">ThreeJS Journey <span class="borderExperience"></span></span> -->
+                    <div class="experienceTextGlobalContainer">
+                        <div data-name="hetic" class="experienceTextContainer">
+                            <p class="experienceText">I am a 3rd year student at Hetic where we learn web development, web design and communication. </p>
+                            <p class="experienceText">Despite the fact that I have deepened the web development, in order to understand and be able to touch everything, I have not neglected the design as well as the communication, because in my point of vue it’s important to understand all the aspect of a project and to be able to discuss it with my teammates.</p>
+                            <p class="experienceText">Moreover, I'm used to working in a team since Hetic trains us to do so by setting up many projects in groups.</p>
+                        </div>
+                        <div data-name="tremplin-digital" class="experienceTextContainer">
+                            <p class="experienceText">On top of that, I had the chance to start my freelance work for an agency setting up WordPress websites. I was able to deepen my knowledge of WordPress and master this tool.</p>
+                        </div>
+                        <div data-name="dreamline-studio" class="experienceTextContainer">
+                            <p class="experienceText">Last summer I did an internship as a fullstack developer at Dreamline Studio in Paris.</p>
+                            <p class="experienceText">I had the chance to touch many subjects and to deepen my knowledge in web development as well as in communication by participating to different meetings with clients.</p>
+                            <p class="experienceText">This was my first real experience in an agency that I really appreciated, which is why I'm looking again for an agency or a studio.</p>
+                            <p class="experienceText">The internship went well and I work as a freelance for this agency allowing me to continue to have activities.</p>
+                        </div>
+                        <div data-name="threejs-journey" class="experienceTextContainer">
+                            <p class="experienceText">In parallel to my different activities, I was able to follow the enriching Three Js Journey training which allowed me to acquire solid bases in Three JS and thus to launch me in the creation of sites in Three JS. </p>
+                            <p class="experienceText">I would also like to thank Mr. Bruno Simon who allowed me to discover web development which has now become my passion.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

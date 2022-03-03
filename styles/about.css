@@ -12,6 +12,19 @@ body {
   border-bottom: 1px solid var(--lightGrey);
 }
 
+.scrollView {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.leftExperience {
+  position: absolute;
+  left: 0;
+  transition: 3s ease;
+}
+
 .projectDisplayContainer .projectDisplay:last-child,
 .projectDisplay {
   padding-right: 0px;
@@ -31,8 +44,23 @@ body {
   font-family: neue-haas-grotesk-display, sans-serif;
 }
 
+.scrollDownContainer {
+  /* display: flex;
+  flex-direction: column; */
+  overflow: hidden;
+  position: relative;
+  margin-top: 1.5vmin;
+}
+
+.scrollDownContainer .ctaContainer {
+  transition: 0.4s ease;
+}
+.scrollDownContainer:hover .ctaContainer {
+  transform: translateY(-100%);
+  transition: 0.4s transform;
+}
 .projectTitleContainer .scrollDownCta {
-  position: inherit;
+  /* position: inherit; */
   margin-top: 2vmin;
   text-decoration: none;
   color: var(--yellow);
@@ -40,6 +68,10 @@ body {
   font-size: clamp(14px, 1.5vmin, 30px);
 }
 
+.scrollDownContainer .childCta {
+  position: absolute;
+  top: 100%;
+}
 .projectTitleContainer .scrollDownCta::before {
   margin-top: 2px;
   margin-right: 3px;
@@ -88,13 +120,32 @@ body {
   color: var(--lightGrey);
   text-transform: uppercase;
 }
+
+.experienceContainer.containerBorder {
+  transition: 0.5s ease;
+  border-right: 1px solid var(--lightGrey);
+}
 .experienceContainer {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
+  transition: 0.5s ease;
 }
 
+.experienceCol {
+  display: flex;
+  flex-direction: column;
+  margin: 2vmin 0px;
+}
+
+.experienceRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px 5vmin;
+  pointer-events: none;
+}
 .experience {
   color: var(--lightGrey);
   font-family: "Romie Regular";
@@ -102,10 +153,58 @@ body {
   text-align: center;
   font-size: clamp(30px, 15vmin, 60px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex: 1;
+  max-height: 10vmin;
+  max-width: fit-content;
+  display: contents;
 }
 
-.borderExperience {
+.flexAuto.flexDiv,
+.flexAuto.experienceFlex {
+  flex: auto;
+  transition: 0.5s ease;
+}
+
+.experienceFlex {
+  justify-content: start;
+}
+
+.experienceTextGlobalContainer {
+  display: flex;
+  flex-direction: column;
+  width: clamp(150px, 50vmax, 600px);
+  padding-top: 15vmin;
+  padding-left: 15vmin;
+  display: none;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.experienceTextGlobalContainer.expGlobalBlock {
+  display: flex;
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
+.experienceTextContainer {
+  display: none;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.experienceTextContainer.paragraphShow {
+  opacity: 1;
+  transition: 0.5s ease;
+}
+.experienceText {
+  color: var(--lightGrey);
+  font-family: neue-haas-grotesk-display, sans-serif;
+
+  padding-top: 3vmin;
+}
+.borderExperience,
+.borderTop {
   width: 100%;
   height: 1px;
   background-color: var(--lightGrey);
@@ -114,8 +213,21 @@ body {
   transition: 0.3s ease;
 }
 
+.borderTop {
+  transform: translateY(10px);
+}
+
+.borderTopShown {
+  transform: translateY(-10px);
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
 .borderShown {
   transform: translateY(10px);
   opacity: 1;
   transition: 0.3s ease;
+}
+
+.flexDiv {
 }
