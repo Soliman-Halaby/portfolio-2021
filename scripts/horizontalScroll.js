@@ -84,6 +84,14 @@ navLinks.map((navLink) => {
 });
 
 const assideArray = ["home", "work", "contact"];
+
+const aboutTarget = document.querySelector(".aboutMenu");
+console.log(aboutTarget);
+
+aboutTarget.addEventListener("click", () => {
+  document.body.classList.add("transition");
+});
+
 // console.log(assideArray[0]);
 
 ////// ELEMENT OBSERVER ON HORIZONTAL SCROLL
