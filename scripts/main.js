@@ -33,6 +33,7 @@ let gap = vmax(3.5);
 ///// update value on window resize
 window.addEventListener("resize", () => {
   gap = vmax(3.5);
+  observeElem();
 });
 
 ////// header menu hover animation
@@ -110,29 +111,33 @@ function pageTransition() {
 
 const assideGlobalContainer = document.querySelector(".assideGlobalContainer");
 
-let observer = new IntersectionObserver(
-  function (observables) {
-    observables.forEach(function (observable) {
-      if (observable.intersectionRatio > 0.5) {
-        // Get Scroll Id
-        let scrollId = observable.target.querySelector("scroll-page").id;
-        // Translate depending on scroll id and gap
-        assideGlobalContainer.style.transform = `translateX(${
-          gap * [scrollId - 1] + 1
-        }px)`;
-        assideGlobalContainer.style.transition = "ease 1.75s";
-      }
-    });
-  },
-  {
-    threshold: [0.5],
-  }
-);
+function observeElem() {
+  let observer = new IntersectionObserver(
+    function (observables) {
+      observables.forEach(function (observable) {
+        if (observable.intersectionRatio > 0.5) {
+          // Get Scroll Id
+          let scrollId = observable.target.querySelector("scroll-page").id;
+          // Translate depending on scroll id and gap
+          assideGlobalContainer.style.transform = `translateX(${
+            gap * [scrollId - 1] + 1
+          }px)`;
+          assideGlobalContainer.style.transition = "ease 1.75s";
+        }
+      });
+    },
+    {
+      threshold: [0.5],
+    }
+  );
+  ////// select all projects
+  let projects = document.querySelectorAll(".project");
 
-////// select all projects
-let projects = document.querySelectorAll(".project");
+  projects.forEach(function (project) {
+    observer.observe(project);
+  });
+}
 
 ////// run observer on each project section
-projects.forEach(function (project) {
-  observer.observe(project);
-});
+
+observeElem();
