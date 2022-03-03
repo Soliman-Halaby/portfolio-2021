@@ -9,15 +9,18 @@ const page = document.querySelector(".projectDisplayContainer");
 const body = document.querySelector("body");
 
 ///// hover animation when entered section
+
 let hoverCursor = (e) => {
-  gsap.to(cursorContainer, 0.25, {
-    css: {
-      left: e.clientX - 85,
-      top: e.clientY + 85,
-    },
-  });
-  if (!cursorContainer) {
-    return;
+  if (cursorContainer) {
+    gsap.to(cursorContainer, 0.25, {
+      css: {
+        left: e.clientX - 85,
+        top: e.clientY + 85,
+      },
+    });
+    if (!cursorContainer) {
+      return;
+    }
   }
   // console.log("tst");
 };
@@ -30,6 +33,9 @@ let customCursorFixed = (e) => {
       top: e.clientY,
     },
   });
+  if (!customCursor) {
+    return;
+  }
 };
 
 // Event Listeners
@@ -42,6 +48,9 @@ followArea.forEach(function (el) {
       scale: 1,
       autoAlpha: 1,
     });
+    if (!el) {
+      return;
+    }
   });
 
   el.addEventListener("mouseleave", () => {
