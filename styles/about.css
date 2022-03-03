@@ -1,0 +1,121 @@
+body {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+}
+.projectDisplayContainer {
+  border-bottom: 1px solid var(--lightGrey);
+}
+
+.projectDisplayContainer .projectDisplay:last-child,
+.projectDisplay {
+  padding-right: 0px;
+  border: 0px;
+}
+.aboutDescription {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  align-self: flex-end;
+  margin-right: 15vmin;
+  margin-top: 5vmin;
+}
+
+.aboutDescription p {
+  color: var(--lightGrey);
+  font-family: neue-haas-grotesk-display, sans-serif;
+}
+
+.projectTitleContainer .scrollDownCta {
+  position: inherit;
+  margin-top: 2vmin;
+  text-decoration: none;
+  color: var(--yellow);
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-size: clamp(14px, 1.5vmin, 30px);
+}
+
+.projectTitleContainer .scrollDownCta::before {
+  margin-top: 2px;
+  margin-right: 3px;
+  content: url("../assets/images/scrollDownArrow.svg");
+}
+
+.aboutTitle {
+  line-height: clamp(20px, 15vmin, 98px);
+}
+
+.projectDisplayContainer {
+  overflow-y: scroll;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.projectDisplayContainer::-webkit-scrollbar,
+.scrollbar-track {
+  display: none !important;
+}
+
+.projectDisplay,
+.projectDisplayContainer {
+  display: flex;
+  flex-direction: column;
+}
+.projectDisplay section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 5vmin - 3.5vmax) !important;
+  height: calc(95vh - 5vmin - 4.5rem);
+}
+
+.projectTitleContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projectTitle {
+  font-size: 16vmin;
+  display: inline-block !important;
+  font-family: Romie Regular;
+  color: var(--lightGrey);
+  text-transform: uppercase;
+}
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.experience {
+  color: var(--lightGrey);
+  font-family: "Romie Regular";
+  margin: 12.5px 0px;
+  text-align: center;
+  font-size: clamp(30px, 15vmin, 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+.borderExperience {
+  width: 100%;
+  height: 1px;
+  background-color: var(--lightGrey);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.borderShown {
+  transform: translateY(10px);
+  opacity: 1;
+  transition: 0.3s ease;
+}
