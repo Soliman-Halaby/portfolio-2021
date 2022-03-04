@@ -14,11 +14,28 @@
   --white: #ffffff;
 }
 
+/******
+
+Setup 
+
+*****/
+
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
   cursor: none;
 }
+
+.skewElem {
+  transition: 0.15s ease !important;
+}
+
+/*****
+
+Transition 
+
+*****/
+
 body::before {
   content: "";
   position: fixed;
@@ -54,33 +71,22 @@ body.transition::before {
 section {
   /* background: red; */
 }
-.projectContent {
-  /* z-index: 3; */
-  /* background: blue; */
-  height: 100%;
-  width: 85%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 
-.projectContent:hover {
-  /* background: pink; */
-}
+/*****
+
+Custom cursor
+
+****/
 
 .cursorPointer,
 .cursorElement {
-  /* opacity: 0; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
 }
-/* 
-.cur .customRelative {
-  position: relative;
-} */
+
 .customCursorFixed {
   width: 15px;
   height: 15px;
@@ -101,18 +107,19 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.customCursor {
+  height: 100%;
+}
+
+.cursorElement {
+  transition: all 0.05s linear;
+}
+
 .show {
   display: block;
 }
 
-.customCursor {
-  /* cursor: pointer; */
-  height: 100%;
-}
-.cursorElement {
-  /* animation: 15s infiniteRotate infinite; */
-  transition: all 0.05s linear;
-}
 /******
 
 Hide Scrollbar
@@ -286,19 +293,10 @@ body {
   left: 50%;
   top: 3vmin;
 }
-/* 
-.linkContainer:hover img:nth-child(2) {
-  animation-name: fastRotate;
-  animation-duration: 0.3s;
-  animation-iteration-count: 1;
-} */
 
-.skewElem {
-  transition: 0.15s ease !important;
-}
 /******
 
-ASSIDE BAR
+Asside bar 
 
 ******/
 
@@ -345,7 +343,6 @@ ASSIDE BAR
   display: flex;
   align-items: center;
   padding: 1vmin 0px;
-  /* padding: 1vmin 1vmax; */
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 300;
@@ -378,8 +375,6 @@ section {
 }
 .projectDisplayContainer {
   position: fixed;
-  /* margin-left: calc(5vmin + 4.5rem);
-    padding-top: calc(5vmin + 3.5vmax); */
   top: auto !important;
   left: auto !important;
   bottom: 5vh !important;
@@ -391,29 +386,14 @@ section {
   /* background-color: pink; */
   overflow: hidden;
   height: calc(95vh - 5vmin - 4.5rem);
-  /* z-index: -1; */
 }
 .projectDisplay {
-  /* width: 100%; */
   will-change: transform;
   width: calc(100vw - 5vmin - 3.5vmax);
-  /* width: 100vw; */
-  /* width: calc(100vw - 3.5vmax); */
-  /* background-color: pink; */
-  /* height: calc(95vh - 5vmin - 4.5rem); */
-  /* padding-top: 100px; */
-  /* position: fixed; */
-  /* margin-left: calc(5vmin + 4.5rem);
-  padding-top: calc(5vmin + 3.5vmax); */
-  /* bottom: 5vh;
-  right: 0; */
   border-bottom: 1px solid var(--lightGrey);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: row;
-  flex-wrap: nowrap; */
-  /* overflow: scroll; */
 }
 
 .projectDisplayContainer .projectDisplay:last-child {
@@ -448,11 +428,49 @@ section {
   max-width: 45vmin;
 }
 
+.projectContent {
+  /* z-index: 3; */
+  /* background: blue; */
+  height: 100%;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*******
+
+Grid for project detail
+
+********/
+.projectGrid {
+  display: grid;
+  margin-top: 8vmin;
+  grid-template-columns: repeat(1, 60px 28vmin);
+}
+
+.projectGrid .detail:nth-child(8) {
+  line-height: clamp(17px, 2.5vmin, 25px);
+}
+.projectGrid .firstDetail {
+  width: 5rem;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.projectGrid span {
+  font-weight: 300;
+  margin: 0;
+}
+
+.projectGrid .italic {
+  font-style: italic;
+  font-weight: 300;
+}
+
 .projectDetails {
   display: flex;
-  /* flex-direction: row; */
   padding-right: 10vmin;
-  /* align-self: flex-start; */
   font-family: neue-haas-grotesk-display, sans-serif;
   color: var(--lightGrey);
 }
@@ -465,35 +483,6 @@ section {
   text-decoration: none;
   color: var(--lightGrey);
   font-style: normal;
-  font-weight: 300;
-}
-
-/* Grid for the projects details */
-.projectGrid {
-  display: grid;
-  margin-top: 8vmin;
-  grid-template-columns: repeat(1, 60px 28vmin);
-}
-
-.projectGrid .detail:nth-child(8) {
-  line-height: clamp(17px, 2.5vmin, 25px);
-}
-.projectGrid .firstDetail {
-  /* padding: 0; */
-  /* width: 0.25rem; */
-  width: 5rem;
-  display: inline-block;
-  font-weight: 500;
-  /* margin-right: 3.5vmin; */
-}
-
-.projectGrid span {
-  font-weight: 300;
-  margin: 0;
-}
-
-.projectGrid .italic {
-  font-style: italic;
   font-weight: 300;
 }
 
@@ -516,7 +505,6 @@ Contact Section
 
 .myInfo {
   width: 70%;
-  /* align-self: flex-end; */
   position: absolute;
   bottom: 2vmin;
   display: flex;
@@ -525,10 +513,6 @@ Contact Section
   font-family: neue-haas-grotesk-display, sans-serif;
 }
 
-/* .myInfo a:hover img {
-  transition: 0.3s ease;
-  transform: translateY(-3px);
-} */
 .findMe {
   color: var(--lightGrey);
   font-weight: 300;
@@ -544,10 +528,7 @@ Contact Section
 .contactLinkContainer {
   overflow: hidden;
 }
-/* .myInfo .social {
-  display: flex;
-  flex-direction: row;
-} */
+
 .myInfo a {
   text-decoration: none;
   color: var(--lightGrey);
@@ -565,43 +546,5 @@ Contact Section
   transition: 0.4s transform;
 }
 .myInfo img {
-  /* width: 25px; */
   margin-left: 5px;
-  /* transform: translateY(8px);
-  transition: 0.3s ease; */
-}
-
-/********
-
-KEYFRAMES
-
-********/
-
-@keyframes infiniteRotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fastRotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes translateAsside {
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(3.5vmax);
-  }
 }

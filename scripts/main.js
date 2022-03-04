@@ -1,9 +1,9 @@
-////// variables
+// Variables
 const menuTargets = [...document.querySelectorAll(".menuTarget")];
 const projectContents = document.querySelectorAll(".projectContent");
 const body = document.querySelector("body");
 
-////// functions to update vmin / vmax on browser
+// Functions to get vmin / vmax on browser
 function vh(v) {
   var h = Math.max(
     document.documentElement.clientHeight,
@@ -28,86 +28,67 @@ function vmax(v) {
   return Math.max(vh(v), vw(v));
 }
 
+// Gap used in Asside and other elements
 let gap = vmax(3.5);
 
-///// update value on window resize
+// Update values and run observer on window resize
 window.addEventListener("resize", () => {
   gap = vmax(3.5);
   observeElem();
 });
 
-////// header menu hover animation
+// Header menu hover animation
 menuTargets.forEach((item) => {
+  // Split all text to separate letters
   let word = item.children[0].children[0].innerText.split("");
   item.children[0].innerHTML = "";
   word.forEach((letter, idx) => {
+    // Get index to animate with delay
     item.children[0].innerHTML += `<span style="--index: ${idx};">${letter}</span>`;
   });
+  // Duplicate the div
   let cloneDiv = item.children[0].cloneNode(true);
-  console.log(cloneDiv);
+
+  // Add class on div then send it to the DOM
   cloneDiv.classList.add("romie");
   item.appendChild(cloneDiv);
 });
 
-////// page transition on click
-
-// projectContents.forEach((element) => {
-//   element.addEventListener("click", () => {
-//     document.body.classList.add("transition");
-//   });
-// });
-
-// const localStorage = window.localStorage;
-
-// localStorage.setItem("transitionClass", "transition");
-
-// const transitionClass = localStorage.getItem("transitionClass");
-// console.log(transitionClass);
-
-// document.body.classList.remove("transition");
 window.onload = () => {
+  // Add transition class when window is on load
   document.body.classList.add("transition");
-  // document.body.classList.remove("transition");
-  // body.classList.remove("transition");
+
   setTimeout(function () {
     pageTransition();
   }, 1000);
   setTimeout(function () {
+    // Remove transition class after some MS
     document.body.classList.remove("transition");
   }, 500);
 };
 
-projectContents.forEach((element) => {
-  element.addEventListener("click", () => {
-    document.body.classList.add("transition");
-  });
-});
-
+// Function to run page transition
 function pageTransition() {
   projectContents.forEach((element) => {
     element.addEventListener(
       "click",
       () => {
+        // Get data name of element then redirect on link
         const elementName = element.getAttribute("data-name");
-        // // console.log(elementName);
-        // setTimeout(function () {
-        //   body.classList.add("transition");
-        // });
-        // setTimeout(function () {
-        //   // body.classList.add("transition");
-        //   body.classList.remove("transition");
-        // }, 1000);
-        // setTimeout(function () {
-        // body.classList.toggle("transition");
-        window.location.href = `/${elementName}.html`;
+        window.location.href = `/project/${elementName}.html`;
       },
       700
     );
     // });
   });
 }
-// const name = projectContents.getAttribute("data-name");
-// console.log(name);
+
+// Add transition on click in projects
+projectContents.forEach((element) => {
+  element.addEventListener("click", () => {
+    document.body.classList.add("transition");
+  });
+});
 
 const assideGlobalContainer = document.querySelector(".assideGlobalContainer");
 
@@ -130,14 +111,14 @@ function observeElem() {
       threshold: [0.5],
     }
   );
-  ////// select all projects
+  // Select all projects
   let projects = document.querySelectorAll(".project");
 
+  // Run observer on each project section
   projects.forEach(function (project) {
     observer.observe(project);
   });
 }
 
-////// run observer on each project section
-
+// Call observer function
 observeElem();

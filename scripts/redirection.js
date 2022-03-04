@@ -1,22 +1,25 @@
+// Variables
 const matesLink = document.querySelectorAll(".detail a");
 
 matesLink.forEach((mateLink) => {
-  console.log(mateLink);
-  // console.log(mateLink.getAttribute("href"));
+  // Get url for each mate
   const mateUrl = mateLink.getAttribute("href");
   mateLink.addEventListener("click", () => {
+    // Redirect on URL on click
     window.location.href = mateUrl;
   });
 });
 
-const x = window.matchMedia("(max-width: 700px)");
+// Media query to redirect for responsive
+const mediaQueryDimension = window.matchMedia("(max-width: 700px)");
 
 function mediaQuery() {
-  if (x.matches) {
+  if (mediaQueryDimension.matches) {
     window.location.href = `https://solimanalhalaby.fr/`;
   }
 }
 
 mediaQuery();
 
+// Run function on resize
 window.addEventListener("resize", mediaQuery);

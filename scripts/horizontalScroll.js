@@ -1,17 +1,14 @@
 import { gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const projectDisplayContainer = document.querySelector(
   ".projectDisplayContainer"
 );
-
-const assideItems = document.querySelectorAll(".assideBar span");
-
 let sections = gsap.utils.toArray(".projectDisplay");
 
-////// horizontal scroll gsap
+// Horizontal scroll using Gsap ScrollTrigger
 
 gsap.to(sections, {
   xPercent: -100 * (sections.length - 1),
@@ -32,16 +29,16 @@ gsap.to(sections, {
   },
 });
 
-////// skew elements depending on scroll velocity
+// Skew elements depending on scroll velocity
 
 let proxy = { skew: 0 },
   skewSetter = gsap.quickSetter(".skewElem", "skewX", "deg"),
-  clamp = gsap.utils.clamp(-5, 5); // don't let the skew go beyond 20 degrees.
+  clamp = gsap.utils.clamp(-5, 5); // Skew degrees
 
 ScrollTrigger.create({
   onUpdate: (self) => {
     let skew = clamp(self.getVelocity() / -500);
-    ///// smooth on skew velocity
+    // Smooth on skew velocity
     if (Math.abs(skew) > Math.abs(proxy.skew)) {
       proxy.skew = skew;
       gsap.to(proxy, {
@@ -57,21 +54,16 @@ ScrollTrigger.create({
 
 ///// Get dom - nav elements to scroll horizontaly using nav bar
 const container = document.querySelector(".projectDisplayContainer");
-const projectDisplays = [...document.querySelectorAll(".projectDisplay")];
 const navLinks = [...document.querySelectorAll(".navBarItems a")];
 
-////// POSITION OF ELEMENTS IN DOM
-
+// Get element position in dom (alternativ to element observer)
 const sectionPosition = {
   about: 0,
   work: 1,
   contact: sections.length - 1,
 };
 
-// container.style.backgroundColor = "red";
-
-////// SCROLL TO ELEMENT ON CLICK IN NAV BAR
-
+// Scroll to elements on click using nav bar
 navLinks.map((navLink) => {
   navLink.addEventListener("click", () => {
     window.scrollTo(
@@ -83,15 +75,9 @@ navLinks.map((navLink) => {
   });
 });
 
-const assideArray = ["home", "work", "contact"];
-
 const aboutTarget = document.querySelector(".aboutMenu");
-console.log(aboutTarget);
 
+// Add transition class on redirect
 aboutTarget.addEventListener("click", () => {
   document.body.classList.add("transition");
 });
-
-// console.log(assideArray[0]);
-
-////// ELEMENT OBSERVER ON HORIZONTAL SCROLL

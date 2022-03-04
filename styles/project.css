@@ -42,22 +42,10 @@ First section project display title
   /* overflow-y: scroll !important; */
 }
 
-.projectDisplay {
-  /* overflow: visible !important; */
-}
 .projectDisplay section {
   width: calc(100vw - 5vmin - 3.5vmax) !important;
-
-  height: calc(95vh - 5vmin - 4.5rem) !important;
-  /* background: red; */
-}
-
-.projectDisplay section:nth-child(2) {
-  /* background: blue; */
-}
-.scroll-content {
-  width: 100% !important;
-  height: 100% !important;
+  /* background: green; */
+  height: calc(95vh - 5vmin - 4.5rem);
 }
 
 /** Center elements in first section **/
@@ -84,9 +72,8 @@ First section project display title
   justify-content: center;
 }
 
-.projectTitleContainer a {
-  position: absolute;
-  bottom: 6vmin;
+.projectTitleContainer .scrollDownContainer {
+  position: relative;
   text-decoration: none;
   color: var(--yellow);
   font-family: neue-haas-grotesk-display, sans-serif;
@@ -94,9 +81,28 @@ First section project display title
   right: 4vmin;
   display: flex;
   align-items: flex-start;
+  overflow: hidden;
 }
 
-.projectTitleContainer a::before {
+.projectTitleContainer .scrollGlobalContainer {
+  position: absolute;
+  right: 4vmin;
+  bottom: 6vmin;
+}
+.scrollDownContainer .ctaContainer {
+  transition: 0.4s ease;
+}
+.scrollDownContainer:hover .ctaContainer {
+  transform: translateY(-100%);
+  transition: 0.4s transform;
+}
+
+.scrollDownContainer .childCta {
+  position: absolute;
+  top: 100%;
+}
+
+.projectTitleContainer .scrollDownCta::before {
   margin-top: 2px;
   margin-right: 3px;
   content: url("../assets/images/scrollDownArrow.svg");
@@ -108,31 +114,6 @@ Second section project display content
 
 ******/
 
-.slides {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  width: 500%;
-  align-items: center;
-}
-
-#projectSection {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  overflow: hidden !important;
-  top: auto !important;
-  left: auto !important;
-  /* position: absolute !important; */
-  bottom: 0 !important;
-  right: 0 !important;
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
 .projectPageContent h1 {
   font-size: 7vmin;
   line-height: 6.5vmin;
@@ -141,18 +122,22 @@ Second section project display content
   margin-top: 8vmin;
 }
 
-#projectSection {
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 45px;
-
-  /* position: absolute; */
+.centerBlack {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  background: #000000;
 }
 
-#projectSection .projectSectionScroll {
-  margin-left: 30vmin;
-  width: 100%;
-  height: 100%;
+.centerBlack .projectDetails {
+  padding-right: 0;
+}
+
+.projectDetails img {
+  width: clamp(150px, 100%, 1100px);
+  max-height: 620px;
+  object-fit: contain;
+  margin: 0px 5vmin;
 }
 
 .projectPageContent {
@@ -181,11 +166,13 @@ Second section project display content
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: calc(95vh - 5vmin - 4.5rem);
+  will-change: transform;
+  height: calc(95vh - 5vmin - 4.5rem) !important;
   /* overflow: hidden; */
 }
 
 .projectScroll {
+  will-change: transform;
   height: calc(95vh - 5vmin - 4.5rem) !important;
 
   /* overflow: hidden; */
@@ -198,17 +185,4 @@ Second section project display content
   max-width: 350px;
   margin-top: 2.5vmin;
   line-height: 2vmin;
-}
-/* 
-.pin-spacer {
-  position: relative !important;
-  margin: 0 !important;
-  margin-top: 2.5vmin !important;
-  inset: 0 !important;
-} */
-
-.horizontal {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
 }

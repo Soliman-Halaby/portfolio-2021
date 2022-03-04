@@ -1,66 +1,22 @@
 import { gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-///// variables
+// Variables
 const projectTitle = document.querySelectorAll(".projectTitle");
-const assideContainer = document.querySelector(".assideGlobalContainer");
 const projectTextContent = document.querySelector(".projectTextContent");
 
 let projects = "";
-// console.log(projectTextContent);
 
 projectTitle.forEach((title) => {
-  //   console.log(project.textContent);
+  // Get title to dynamicly add it to asside
   projects += title.textContent;
 });
-console.log(projects);
-///// add asside text depending on title
+
+// Add dynamic asside text depending on title
 projectTextContent.textContent = projects;
-// console.log(projects.textContent);
-
-// let observerElement = new IntersectionObserver(
-//   function (observables) {
-//     observables.forEach(function (observable) {
-//       if (observable.intersectionRatio > 0.5) {
-//         // Get Scroll Id
-//         let scrollId = observable.target.querySelector("scroll-page").id;
-//         // Remove class to all elements
-//         // for (let k = 0; k < assideItems.length; k++) {
-//         //   assideItems[k].classList.remove("selected");
-//         //   // console.log(assideItems[k]);
-//         //   // console.log(assideItems.length);
-//         // }
-//         // Add class on element depending on scroll id
-//         // console.log(scrollId);
-//         // console.log(assideItems[scrollId]);
-//         // assideItems[scrollId - 1].classList.add("selected");
-
-//         console.log(scrollId);
-//         assideContainer.style.transform = `translateX(${
-//           gap * [scrollId - 1] + 1
-//         }px)`;
-//         assideContainer.style.transition = "ease 1.75s";
-//         // Change text on elements depending on scroll id
-//       }
-//     });
-//   },
-//   {
-//     threshold: [0.5],
-//   }
-// );
-
-////// SELECT ALL PROJECTS
-let projectsSection = document.querySelectorAll(".project");
-
-////// RUN OBSERVER ON EACH PROJECT SECTION
-
-// projectsSection.forEach(function (project) {
-//   observerElement.observe(project);
-// });
 
 const menuTargets = [...document.querySelectorAll(".menuTarget")];
 
@@ -95,18 +51,11 @@ gsap.to(slides, {
   },
 });
 
-// let observer = new IntersectionObserver(
-//   entries => {
-//     console.log(entries);
-//   }
-// );
-
-// observer.observe(projectSection)
-
 const container = document.querySelector(".projectDisplayContainer");
 
 const scrollCta = document.querySelectorAll(".scrollDownContainer");
 
+// Scroll to second section on click
 scrollCta.forEach((cta) => {
   cta.addEventListener("click", () => {
     container.scrollTop = container.getBoundingClientRect().height;

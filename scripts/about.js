@@ -1,72 +1,49 @@
-// import { gsap } from "gsap";
-
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// gsap.to(".experienceContainer", {
-//   scrollTrigger: {
-//     trigger: ".scrollView",
-//     markers: true,
-//     toggleActions: "restart none none none",
-//   },
-//   x: -500,
-//   // rotation: 360,
-//   duration: 3,
-// })
-
+// Variables
 const experiences = document.querySelectorAll(".experienceCol");
-const experiencesText = [
-  ...document.querySelectorAll(".experienceTextContainer"),
-];
-
 const experienceGlobalContainer = document.querySelector(
   ".experienceTextGlobalContainer"
 );
 
-// const experienceAttribute = experience.getAttribute("data-name");
-// console.log(experienceAttribute);
-// console.log(user);
-// console.log(borderExperiences);
-// experiencesText.forEach((experienceText) => {
-//   console.log(experienceText);
-//   console.log(experienceText.getAttribute("data-name"));
-// });
-
-const test = "hetic";
-
 experiences.forEach((experience) => {
+  // Variables from the select div
   const borderBottom = experience.querySelector(".borderExperience");
   const borderTop = experience.querySelector(".borderTop");
+
+  // Get data attribute
   const experienceData = experience.getAttribute("data-name");
+
+  // Select div which got this attribute
   const paragraphData = document.querySelector(
     ".experienceTextContainer[data-name=" + experienceData,
     "]"
   );
-  experience.addEventListener("mouseover", () => {
-    borderBottom.classList.remove("borderShown");
-    borderBottom.classList.add("borderShown");
-    borderTop.classList.remove("borderTopShown");
-    borderTop.classList.add("borderTopShown");
-    // console.log(experienceData);
-    // console.log(test);
 
+  experience.addEventListener("mouseover", () => {
+    // Remove all classes
+    borderBottom.classList.remove("borderShown");
+    borderTop.classList.remove("borderTopShown");
+    paragraphData.classList.remove("paragraphShow");
+
+    // Add classes
+    borderBottom.classList.add("borderShown");
+    borderTop.classList.add("borderTopShown");
+
+    // Fade in effect
     setTimeout(() => {
       paragraphData.style.display = "block";
     }, 200);
-    paragraphData.classList.remove("paragraphShow");
     setTimeout(() => {
       paragraphData.classList.add("paragraphShow");
     }, 300);
-
-    // console.log(paragraphData);
   });
 
   experience.addEventListener("mouseleave", () => {
-    // console.log("mouseot");
+    // Remove classes to hide borders
     borderBottom.classList.remove("borderShown");
     borderTop.classList.remove("borderTopShown");
     paragraphData.classList.remove("paragraphShow");
+
+    // Fade out effect
     setTimeout(() => {
       paragraphData.style.display = "none";
     }, 200);
@@ -76,6 +53,7 @@ experiences.forEach((experience) => {
 const container = document.querySelector(".projectDisplayContainer");
 const scrollCta = document.querySelectorAll(".ctaContainer");
 
+// Scroll onclick CTAS
 scrollCta.forEach((cta) => {
   cta.addEventListener("click", () => {
     container.scrollTop = container.getBoundingClientRect().height;
@@ -85,6 +63,8 @@ scrollCta.forEach((cta) => {
 const flexDivs = document.querySelectorAll(".flexDiv");
 const experienceText = document.querySelector(".experienceFlex");
 const experienceContainer = document.querySelector(".experienceContainer");
+
+// Function to run element observer
 function observeElem() {
   let observer = new IntersectionObserver(
     function (observables) {
@@ -92,41 +72,54 @@ function observeElem() {
         if (observable.intersectionRatio > 0.5) {
           // Get Scroll Id
           let scrollId = observable.target.querySelector("scroll-page").id;
-          // console.log(scrollId);
           if (scrollId == 2) {
             setTimeout(function () {
+              // Add classes to do the animation when on second section
               experienceContainer.classList.add("containerBorder");
               experienceText.classList.add("flexAuto");
+
+              // Add flex auto on each div to remove justify content center
               flexDivs.forEach((flexDiv) => {
                 flexDiv.classList.add("flexAuto");
               });
+
+              // Add classes on right element of 2nd section to show paragraph
               experienceGlobalContainer.classList.add("expGlobalBlock");
             }, 900);
           } else {
-            experienceContainer.classList.remove("containerBorder");
-            experienceText.classList.remove("flexAuto");
-            flexDivs.forEach((flexDiv) => {
-              flexDiv.classList.remove("flexAuto");
-            });
-            experienceGlobalContainer.classList.remove("expGlobalBlock");
+            setTimeout(function () {
+              // Remove classes as long as we leave 2nd section
+              experienceContainer.classList.remove("containerBorder");
+              experienceText.classList.remove("flexAuto");
+              flexDivs.forEach((flexDiv) => {
+                flexDiv.classList.remove("flexAuto");
+              });
+              experienceGlobalContainer.classList.remove("expGlobalBlock");
+            }, 200);
           }
         }
       });
     },
     {
-      threshold: [0.5],
+      threshold: [0.89],
     }
   );
-  ////// select all projects
+
+  // Select all projects
   let projects = document.querySelectorAll(".project");
   projects.forEach(function (project) {
+    // Run observer
     observer.observe(project);
   });
 }
+
+// Run observer function
 observeElem();
 
+// Select all menus
 const menuTargets = [...document.querySelectorAll(".menuRedirect")];
 
+// Add class transition to switch pages
 menuTargets.forEach((element) => {
   element.addEventListener("click", () => {
     document.body.classList.add("transition");

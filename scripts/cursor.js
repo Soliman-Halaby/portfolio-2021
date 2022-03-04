@@ -1,15 +1,12 @@
 import { gsap } from "gsap";
 
-///// variables
+// Variables
 const cursorContainer = document.querySelector(".cursorElementContainer");
 const customCursor = document.querySelector(".customCursorFixed");
-// var buttonText = document.querySelector(".cursorPointer");
 const followArea = document.querySelectorAll(".projectContent");
 const page = document.querySelector(".projectDisplayContainer");
-const body = document.querySelector("body");
 
-///// hover animation when entered section
-
+// Hover animation when entered section
 let hoverCursor = (e) => {
   if (cursorContainer) {
     gsap.to(cursorContainer, 0.25, {
@@ -25,7 +22,7 @@ let hoverCursor = (e) => {
   // console.log("tst");
 };
 
-///// main cursor
+// Main cursor
 let customCursorFixed = (e) => {
   gsap.to(customCursor, 0.25, {
     css: {
@@ -39,7 +36,6 @@ let customCursorFixed = (e) => {
 };
 
 // Event Listeners
-// ************
 
 followArea.forEach(function (el) {
   el.addEventListener("mouseenter", () => {
@@ -48,9 +44,6 @@ followArea.forEach(function (el) {
       scale: 1,
       autoAlpha: 1,
     });
-    if (!el) {
-      return;
-    }
   });
 
   el.addEventListener("mouseleave", () => {
@@ -59,7 +52,6 @@ followArea.forEach(function (el) {
       scale: 0.5,
       autoAlpha: 0,
     });
-    console.log("mouseout");
   });
 });
 
@@ -69,6 +61,6 @@ followArea.forEach((area) => {
 });
 
 // Events to make tu cursor follow even if not showing
-body.addEventListener("mousemove", hoverCursor);
+document.body.addEventListener("mousemove", hoverCursor);
 
-body.addEventListener("mousemove", customCursorFixed);
+document.body.addEventListener("mousemove", customCursorFixed);
