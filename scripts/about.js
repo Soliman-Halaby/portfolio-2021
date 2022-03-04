@@ -78,7 +78,7 @@ const scrollCta = document.querySelectorAll(".ctaContainer");
 
 scrollCta.forEach((cta) => {
   cta.addEventListener("click", () => {
-    container.scrollTop = container.getBoundingClientRect().height * 2;
+    container.scrollTop = container.getBoundingClientRect().height;
   });
 });
 

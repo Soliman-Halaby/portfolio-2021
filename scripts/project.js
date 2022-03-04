@@ -102,3 +102,13 @@ gsap.to(slides, {
 // );
 
 // observer.observe(projectSection)
+
+const container = document.querySelector(".projectDisplayContainer");
+
+const scrollCta = document.querySelectorAll(".scrollDownContainer");
+
+scrollCta.forEach((cta) => {
+  cta.addEventListener("click", () => {
+    container.scrollTop = container.getBoundingClientRect().height;
+  });
+});
