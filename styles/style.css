@@ -3,6 +3,10 @@
   src: url("../assets/fonts/Romie-Regular.woff") format("woff");
 }
 
+::selection {
+  color: var(--yellow);
+  /* background: var(--darkGrey); */
+}
 :root {
   --darkGrey: #1e1e1e;
   --lightGrey: #e5e5e5;
@@ -19,7 +23,7 @@ body::before {
   content: "";
   position: fixed;
   transform-origin: 100% 0;
-  background: var(--yellow);
+  background: var(--lightGrey);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -33,7 +37,7 @@ body::before {
   content: "";
   position: fixed;
   transform-origin: 100% 0;
-  background: var(--yellow);
+  background: var(--lightGrey);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -440,7 +444,7 @@ section {
   /* right: 40vmin; */
   right: clamp(20vmin, 30vmin, 40vmin);
   z-index: -1;
-  /* width: 80vmin; */
+  width: 80vmin;
   max-width: 45vmin;
 }
 
@@ -468,9 +472,12 @@ section {
 .projectGrid {
   display: grid;
   margin-top: 8vmin;
-  grid-template-columns: repeat(1, 60px 35vmin);
+  grid-template-columns: repeat(1, 60px 28vmin);
 }
 
+.projectGrid .detail:nth-child(8) {
+  line-height: clamp(17px, 2.5vmin, 25px);
+}
 .projectGrid .firstDetail {
   /* padding: 0; */
   /* width: 0.25rem; */
@@ -558,7 +565,8 @@ Contact Section
   transition: 0.4s transform;
 }
 .myInfo img {
-  width: 25px;
+  /* width: 25px; */
+  margin-left: 5px;
   /* transform: translateY(8px);
   transition: 0.3s ease; */
 }
