@@ -5,9 +5,24 @@ const cursorContainer = document.querySelector(".cursorElementContainer");
 const customCursor = document.querySelector(".customCursorFixed");
 const followArea = document.querySelectorAll(".projectContent");
 const page = document.querySelector(".projectDisplayContainer");
-
+const seeWebsite = document.querySelector(".seeWebsite");
 // Hover animation when entered section
 let hoverCursor = (e) => {
+  if (cursorContainer) {
+    gsap.to(cursorContainer, 0.25, {
+      css: {
+        left: e.clientX - 85,
+        top: e.clientY + 85,
+      },
+    });
+    if (!cursorContainer) {
+      return;
+    }
+  }
+  // console.log("tst");
+};
+
+let seeWebsiteCursor = (e) => {
   if (cursorContainer) {
     gsap.to(cursorContainer, 0.25, {
       css: {
@@ -64,3 +79,21 @@ followArea.forEach((area) => {
 document.body.addEventListener("mousemove", hoverCursor);
 
 document.body.addEventListener("mousemove", customCursorFixed);
+
+seeWebsite.addEventListener("mouseenter", () => {
+  // Animation to scale and up opacity
+  gsap.to(cursorContainer, 0.25, {
+    scale: 1,
+    autoAlpha: 1,
+  });
+});
+
+seeWebsite.addEventListener("mouseleave", () => {
+  gsap.to(cursorContainer, 0.25, {
+    // Animation opacity 0 and scale 0.5
+    scale: 0.5,
+    autoAlpha: 0,
+  });
+});
+
+seeWebsite.addEventListener("mousemove", seeWebsiteCursor);
