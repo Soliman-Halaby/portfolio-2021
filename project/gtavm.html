@@ -14,9 +14,13 @@
 </head>
 
 <body class="transition">
+    <div class="cursorElementContainer">
+        <img class="cursorPointer" src="../assets/images/linkArrow.svg">
+        <img class="cursorElement" src="../assets/images/linkText.svg">
+    </div>
     <div class="customCursorFixed"></div>
     <div class="navBar">
-        <a href="../index.html">
+        <a href="/">
             <div class="navBarLogo">
                 <img class="" src="../assets/images/logoSoly.svg">
             </div>
@@ -28,12 +32,12 @@
                     <span>About</span>
                 </div>
             </a>
-            <a href="../index.html" class="menuTarget" id="l-work">
+            <a href="/" class="menuTarget" id="l-work">
                 <div class="navHrefContainer">
                     <span>Work</span>
                 </div>
             </a>
-            <a href="../index.html" class="menuTarget" id="l-contact">
+            <a href="/" class="menuTarget" id="l-contact">
                 <div class="navHrefContainer">
                     <span>Contact</span>
                 </div>
@@ -70,7 +74,7 @@
         </div>
         <div class="projectDisplayRow">
             <div class="projectDisplay projectScroll">
-                <section class="project">
+                <section class="project seeWebsite" data-url="https://gtavm.fr/">
                     <scroll-page id="2"></scroll-page>
                     <div class="projectPageContent" >
                         <h1 class="title"><span>3D Modeling for</span><span>a better integration in</span><span>real life</span></h1>
@@ -149,6 +153,7 @@
     <script type="module" src="../scripts/main.js"></script>
     <script type="module" src="../scripts/project.js"></script>
     <script type="module" src="../scripts/cursor.js"></script>
+    <script type="module" src="../scripts/redirection.js"></script>
 </body>
 
 </html>
