@@ -80,20 +80,24 @@ document.body.addEventListener("mousemove", hoverCursor);
 
 document.body.addEventListener("mousemove", customCursorFixed);
 
-seeWebsite.addEventListener("mouseenter", () => {
-  // Animation to scale and up opacity
-  gsap.to(cursorContainer, 0.25, {
-    scale: 1,
-    autoAlpha: 1,
+if (seeWebsite) {
+  seeWebsite.addEventListener("mouseenter", () => {
+    // Animation to scale and up opacity
+    gsap.to(cursorContainer, 0.25, {
+      scale: 1,
+      autoAlpha: 1,
+    });
   });
-});
 
-seeWebsite.addEventListener("mouseleave", () => {
-  gsap.to(cursorContainer, 0.25, {
-    // Animation opacity 0 and scale 0.5
-    scale: 0.5,
-    autoAlpha: 0,
+  seeWebsite.addEventListener("mouseleave", () => {
+    gsap.to(cursorContainer, 0.25, {
+      // Animation opacity 0 and scale 0.5
+      scale: 0.5,
+      autoAlpha: 0,
+    });
   });
-});
+}
 
-seeWebsite.addEventListener("mousemove", seeWebsiteCursor);
+if (seeWebsite) {
+  seeWebsite.addEventListener("mousemove", seeWebsiteCursor);
+}
