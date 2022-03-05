@@ -53,11 +53,9 @@ gsap.to(slides, {
 
 const container = document.querySelector(".projectDisplayContainer");
 
-const scrollCta = document.querySelectorAll(".scrollDownContainer");
+const scrollCta = document.querySelector(".scrollDownContainer");
 
 // Scroll to second section on click
-scrollCta.forEach((cta) => {
-  cta.addEventListener("click", () => {
-    container.scrollTop = container.getBoundingClientRect().height;
-  });
+scrollCta.addEventListener("click", () => {
+  container.scrollTop = container.getBoundingClientRect().height;
 });

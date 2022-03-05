@@ -51,13 +51,11 @@ experiences.forEach((experience) => {
 });
 
 const container = document.querySelector(".projectDisplayContainer");
-const scrollCta = document.querySelectorAll(".ctaContainer");
+const scrollCta = document.querySelector(".scrollDownContainer");
 
 // Scroll onclick CTAS
-scrollCta.forEach((cta) => {
-  cta.addEventListener("click", () => {
-    container.scrollTop = container.getBoundingClientRect().height;
-  });
+scrollCta.addEventListener("click", () => {
+  container.scrollTop = container.getBoundingClientRect().height;
 });
 
 const flexDivs = document.querySelectorAll(".flexDiv");
