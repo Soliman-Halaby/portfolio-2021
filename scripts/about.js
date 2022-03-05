@@ -86,22 +86,23 @@ function observeElem() {
               // Add classes on right element of 2nd section to show paragraph
               experienceGlobalContainer.classList.add("expGlobalBlock");
             }, 900);
-          } else {
+          }
+          if (scrollId == 1) {
             setTimeout(function () {
               // Remove classes as long as we leave 2nd section
               experienceContainer.classList.remove("containerBorder");
               experienceText.classList.remove("flexAuto");
               flexDivs.forEach((flexDiv) => {
                 flexDiv.classList.remove("flexAuto");
+                experienceGlobalContainer.classList.remove("expGlobalBlock");
               });
-              experienceGlobalContainer.classList.remove("expGlobalBlock");
             }, 200);
           }
         }
       });
     },
     {
-      threshold: [0.89],
+      threshold: [0.5],
     }
   );
 
