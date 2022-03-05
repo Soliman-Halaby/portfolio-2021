@@ -7,7 +7,7 @@ module.exports = defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        gtavm: resolve(__dirname, "./project/gtavm.html"),
+        gtavm: resolve(__dirname, "gtavm.html"),
         about: resolve(__dirname, "about.html"),
       },
     },
