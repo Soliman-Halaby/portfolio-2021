@@ -26,7 +26,7 @@ const mediaQueryDimension = window.matchMedia("(max-width: 700px)");
 
 function mediaQuery() {
   if (mediaQueryDimension.matches) {
-    window.location.href = `https://solimanalhalaby.fr/`;
+    window.location.href = `https://v2.solimanalhalaby.fr/`;
   }
 }
 
