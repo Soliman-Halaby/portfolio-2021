@@ -147,7 +147,7 @@ Variables
   font-size: 16vmin;
   font-family: "Romie Regular";
   /* line-height: 90px; */
-  line-height: 11vmin;
+  line-height: clamp(20px, 15vmin, 115px);
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 0;
@@ -451,6 +451,7 @@ Grid for project detail
 
 .projectGrid .detail:nth-child(8) {
   line-height: clamp(17px, 2.5vmin, 25px);
+  max-width: 1;
 }
 .projectGrid .firstDetail {
   width: 5rem;
@@ -470,7 +471,7 @@ Grid for project detail
 
 .projectDetails {
   display: flex;
-  padding-right: 10vmin;
+  padding-right: 18vmin;
   font-family: neue-haas-grotesk-display, sans-serif;
   color: var(--lightGrey);
 }

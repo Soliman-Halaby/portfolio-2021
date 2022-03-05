@@ -79,7 +79,7 @@ body {
 }
 
 .aboutTitle {
-  line-height: clamp(20px, 15vmin, 98px);
+  line-height: clamp(20px, 15vmin, 115px);
 }
 
 .projectDisplayContainer {
