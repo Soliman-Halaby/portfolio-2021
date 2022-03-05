@@ -52,29 +52,6 @@ ScrollTrigger.create({
   },
 });
 
-///// Get dom - nav elements to scroll horizontaly using nav bar
-const container = document.querySelector(".projectDisplayContainer");
-const navLinks = [...document.querySelectorAll(".navBarItems a")];
-
-// Get element position in dom (alternativ to element observer)
-const sectionPosition = {
-  about: 0,
-  work: 1,
-  contact: sections.length - 1,
-};
-
-// Scroll to elements on click using nav bar
-navLinks.map((navLink) => {
-  navLink.addEventListener("click", () => {
-    window.scrollTo(
-      0,
-      container.getBoundingClientRect().width *
-        sectionPosition[navLink.id.slice(2)]
-    );
-    console.log(container.getBoundingClientRect().width);
-  });
-});
-
 const aboutTarget = document.querySelector(".aboutMenu");
 
 // Add transition class on redirect
