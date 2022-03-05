@@ -10,6 +10,17 @@ matesLink.forEach((mateLink) => {
   });
 });
 
+// Visit project links
+const webSiteLink = document.querySelector(".seeWebsite");
+
+if (webSiteLink) {
+  console.log(webSiteLink);
+  // console.log(webSiteLinkUrl);
+  const webSiteLinkUrl = webSiteLink.getAttribute("data-url");
+  webSiteLink.addEventListener("click", () => {
+    window.open(webSiteLinkUrl, "_blank");
+  });
+}
 // Media query to redirect for responsive
 const mediaQueryDimension = window.matchMedia("(max-width: 700px)");
 
