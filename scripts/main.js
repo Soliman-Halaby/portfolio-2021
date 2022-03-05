@@ -75,7 +75,7 @@ function pageTransition() {
       () => {
         // Get data name of element then redirect on link
         const elementName = element.getAttribute("data-name");
-        window.location.href = `/project/${elementName}.html`;
+        window.location.href = `/${elementName}.html`;
       },
       700
     );
