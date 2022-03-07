@@ -40,14 +40,15 @@ gsap.to(slides, {
     pin: true,
     start: "top top",
     pinSpacing: false,
-    scrub: 1,
+    scrub: true,
     // snap: {
     //   snapTo: 1 / (slides.length - 1),
     //   inertia: false,
     //   duration: { min: 0.1, max: 0.1 },
     // },
     end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
-    ease: "power2.easeOut",
+    // end: "+=22000", // end after scrolling 500px beyond the start
+    // ease: "power2.easeOut",
   },
 });
 
