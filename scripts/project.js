@@ -28,27 +28,46 @@ menuTargets.forEach((element) => {
 
 const projectSection = document.querySelector(".projectDisplayRow");
 
-let slides = gsap.utils.toArray(".projectScroll");
+// let slides = gsap.utils.toArray(".projectScroll");
 
-gsap.to(slides, {
-  xPercent: -100 * (slides.length - 1),
-  ease: "none",
+// gsap.to(slides, {
+//   xPercent: -100 * (slides.length - 1),
+//   ease: "none",
+//   scrollTrigger: {
+//     markers: true,
+//     trigger: ".projectDisplayRow",
+//     scroller: ".projectDisplayContainer",
+//     pin: true,
+//     start: "top top",
+//     pinSpacing: false,
+//     scrub: true,
+//     // snap: {
+//     //   snapTo: 1 / (slides.length - 1),
+//     //   inertia: false,
+//     //   duration: { min: 0.1, max: 0.1 },
+//     // },
+//     end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
+//     // end: "+=22000", // end after scrolling 500px beyond the start
+//     // ease: "power2.easeOut",
+//   },
+// });
+
+gsap.registerPlugin(ScrollTrigger);
+
+let sections = gsap.utils.toArray(".projectScroll");
+
+gsap.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: "power3.out",
   scrollTrigger: {
-    markers: true,
     trigger: ".projectDisplayRow",
-    scroller: ".projectDisplayContainer",
+    // scroller: ".projectDisplayContainer",
+    markers: true,
     pin: true,
-    start: "top top",
-    pinSpacing: false,
-    scrub: true,
-    // snap: {
-    //   snapTo: 1 / (slides.length - 1),
-    //   inertia: false,
-    //   duration: { min: 0.1, max: 0.1 },
-    // },
-    end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
-    // end: "+=22000", // end after scrolling 500px beyond the start
-    // ease: "power2.easeOut",
+    scrub: 1,
+    snap: 1 / (sections.length - 1),
+    end: () => "+=" + document.querySelector(".projectDisplayRow").offsetWidth,
+    ease: "power3.out",
   },
 });
 
