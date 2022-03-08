@@ -6,10 +6,29 @@ const customCursor = document.querySelector(".customCursorFixed");
 const followArea = document.querySelectorAll(".projectContent");
 const page = document.querySelector(".projectDisplayContainer");
 const seeWebsite = document.querySelector(".seeWebsite");
+const cursorText = document.querySelector(".cursorElement");
+
+let rotateLogo = gsap
+  .timeline()
+  .fromTo(
+    cursorText,
+    {
+      rotation: 0,
+    },
+    {
+      rotation: 360,
+      duration: 10,
+      repeat: -1,
+      ease: "linear",
+    },
+    0
+  )
+  .timeScale(1);
+
 // Hover animation when entered section
 let hoverCursor = (e) => {
   if (cursorContainer) {
-    gsap.to(cursorContainer, 0.25, {
+    gsap.to(cursorContainer, 0.5, {
       css: {
         left: e.clientX - 85,
         top: e.clientY + 85,
