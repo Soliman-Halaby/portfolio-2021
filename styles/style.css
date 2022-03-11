@@ -39,7 +39,7 @@ Transition
 body::before {
   content: "";
   position: fixed;
-  transform-origin: 100% 0;
+  transform-origin: -100% 0;
   background: var(--lightGrey);
   width: 100vw;
   height: 100vh;
@@ -47,13 +47,13 @@ body::before {
   left: 0;
   transform: scaleX(0);
   z-index: 3;
-  transition: transform 0.25s;
+  transition: transform 0.35s;
 }
 
 body::before {
   content: "";
   position: fixed;
-  transform-origin: 100% 0;
+  transform-origin: -100% 0;
   background: var(--lightGrey);
   width: 100vw;
   height: 100vh;
@@ -112,10 +112,6 @@ Custom cursor
   height: 100%;
 }
 
-.cursorElement {
-  transition: all 0.05s linear;
-}
-
 .show {
   display: block;
 }
@@ -147,13 +143,17 @@ Variables
   font-size: 16vmin;
   font-family: "Romie Regular";
   /* line-height: 90px; */
-  line-height: clamp(20px, 15vmin, 115px);
+  line-height: clamp(20px, 15vmin, 100px);
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 0;
   margin-top: 10vmin;
   display: flex;
   flex-direction: column;
+}
+
+.contactTitle {
+  width: 60%;
 }
 
 .description {
@@ -342,7 +342,7 @@ Asside bar
   width: 3.5vmax;
   display: flex;
   align-items: center;
-  padding: 1vmin 0px;
+  padding: 1.6vmin 0px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 300;
@@ -505,7 +505,7 @@ Contact Section
 }
 
 .myInfo {
-  width: 70%;
+  width: 60%;
   position: absolute;
   bottom: 2vmin;
   display: flex;

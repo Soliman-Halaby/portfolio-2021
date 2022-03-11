@@ -1,12 +1,12 @@
 body {
   padding: 0;
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
+  /* overflow: hidden; */
   margin: 0;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior-y: none;
-  overscroll-behavior-x: none;
+  overscroll-behavior-x: none; */
 }
 .projectDisplayContainer {
   border-bottom: 1px solid var(--lightGrey);
@@ -79,7 +79,7 @@ body {
 }
 
 .aboutTitle {
-  line-height: clamp(20px, 15vmin, 115px);
+  line-height: clamp(20px, 15vmin, 100px);
 }
 
 .projectDisplayContainer {
@@ -118,6 +118,7 @@ body {
   display: inline-block !important;
   font-family: Romie Regular;
   color: var(--lightGrey);
+  line-height: clamp(20px, 15vmin, 100px);
   text-transform: uppercase;
 }
 
@@ -137,6 +138,17 @@ body {
   display: flex;
   flex-direction: column;
   margin: 2vmin 0px;
+}
+
+.customCursorFixed {
+  width: 15px;
+  height: 15px;
+  position: fixed;
+  pointer-events: none;
+  background: var(--yellow);
+  border-radius: 50%;
+  /* position: absolute; */
+  z-index: 3;
 }
 
 .experienceRow {

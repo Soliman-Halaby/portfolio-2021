@@ -45,7 +45,8 @@ First section project display title
 .projectDisplay section {
   width: calc(100vw - 5vmin - 3.5vmax) !important;
   /* background: green; */
-  height: calc(95vh - 5vmin - 4.5rem);
+  /* height: calc(95vh - 5vmin - 4.5rem); */
+  height: 84vh;
 }
 
 /** Center elements in first section **/
@@ -62,6 +63,7 @@ First section project display title
   display: inline-block !important;
   font-family: "Romie Regular";
   color: var(--lightGrey);
+  line-height: clamp(20px, 15vmin, 102px);
   text-transform: uppercase;
 }
 
@@ -78,16 +80,24 @@ First section project display title
   color: var(--yellow);
   font-family: neue-haas-grotesk-display, sans-serif;
   font-size: 2vmin;
-  right: 4vmin;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
 }
 
+.rowProjectContainer {
+  display: flex;
+  flex-direction: row;
+}
 .projectTitleContainer .scrollGlobalContainer {
-  position: absolute;
-  right: 4vmin;
-  bottom: 6vmin;
+  /* position: absolute;
+  right: 0vmin;
+  bottom: 0vmin; */
+}
+
+.scrollGlobalContainer {
+  display: flex;
+  align-self: flex-end;
 }
 .scrollDownContainer .ctaContainer {
   transition: 0.4s ease;
@@ -126,7 +136,7 @@ Second section project display content
   display: flex;
   justify-content: center;
   align-items: center !important;
-  background: #000000;
+  /* background: #000000; */
 }
 
 .centerBlack .projectDetails {
@@ -142,7 +152,6 @@ Second section project display content
 
 .projectPageContent {
   align-items: flex-start;
-  margin-left: 30vmin;
   height: calc(95vh - 5vmin - 4.5rem) !important;
   width: 100%;
 }
@@ -173,7 +182,8 @@ Second section project display content
 
 .projectScroll {
   will-change: transform;
-  height: calc(95vh - 5vmin - 4.5rem) !important;
+  height: 100%;
+  /* height: calc(95vh - 5vmin - 4.5rem) !important; */
 
   /* overflow: hidden; */
 }
@@ -185,4 +195,8 @@ Second section project display content
   max-width: 350px;
   margin-top: 2.5vmin;
   line-height: 2vmin;
+}
+
+.seeWebsite .projectPageContent {
+  margin-left: 30vmin;
 }
