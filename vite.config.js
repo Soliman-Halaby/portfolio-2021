@@ -8,8 +8,17 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         gtavm: resolve(__dirname, "gtavm.html"),
+        selfer: resolve(__dirname, "selfer.html"),
+        moviereact: resolve(__dirname, "moviereact.html"),
+        canlinkme: resolve(__dirname, "canlinkme.html"),
+        ddalos: resolve(__dirname, "ddalos.html"),
+        savoir: resolve(__dirname, "savoir.html"),
         about: resolve(__dirname, "about.html"),
       },
     },
   },
 });
+
+// {
+//   "cleanUrls": true
+// }
