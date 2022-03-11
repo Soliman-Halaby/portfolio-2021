@@ -8,6 +8,22 @@ const page = document.querySelector(".projectDisplayContainer");
 const seeWebsite = document.querySelector(".seeWebsite");
 const cursorText = document.querySelector(".cursorElement");
 
+// Hover animation when entered section
+let hoverCursor = (e) => {
+  if (cursorContainer) {
+    gsap.to(cursorContainer, 0.7, {
+      css: {
+        left: e.clientX - 85,
+        top: e.clientY + 85,
+      },
+    });
+    if (!cursorContainer) {
+      return;
+    }
+  }
+  // console.log("tst");
+};
+
 let rotateLogo = gsap
   .timeline()
   .fromTo(
@@ -24,22 +40,6 @@ let rotateLogo = gsap
     0
   )
   .timeScale(1);
-
-// Hover animation when entered section
-let hoverCursor = (e) => {
-  if (cursorContainer) {
-    gsap.to(cursorContainer, 0.5, {
-      css: {
-        left: e.clientX - 85,
-        top: e.clientY + 85,
-      },
-    });
-    if (!cursorContainer) {
-      return;
-    }
-  }
-  // console.log("tst");
-};
 
 let seeWebsiteCursor = (e) => {
   if (cursorContainer) {
