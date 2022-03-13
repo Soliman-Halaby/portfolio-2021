@@ -13,6 +13,7 @@ module.exports = defineConfig({
         canlinkme: resolve(__dirname, "canlinkme.html"),
         ddalos: resolve(__dirname, "ddalos.html"),
         savoir: resolve(__dirname, "savoir.html"),
+        eclipse: resolve(__dirname, "eclipse.html"),
         about: resolve(__dirname, "about.html"),
       },
     },
