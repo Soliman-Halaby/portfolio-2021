@@ -91,6 +91,8 @@ Custom cursor
   width: 15px;
   height: 15px;
   position: fixed;
+  top: -10%;
+  left: 50%;
   pointer-events: none;
   background: var(--yellow);
   border-radius: 50%;
@@ -101,7 +103,7 @@ Custom cursor
 .cursorElementContainer {
   opacity: 0%;
   /* display: none; */
-  transform: scale(1);
+  /* transform: scale(1); */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -142,8 +144,9 @@ Variables
   color: var(--lightGrey);
   font-size: 16vmin;
   font-family: "Romie Regular";
-  /* line-height: 90px; */
-  line-height: clamp(20px, 15vmin, 100px);
+  /* line-height: 12vmin; */
+  line-height: clamp(75px, 12vmin, 105px);
+  /* line-height: 95px; */
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 0;

@@ -6,6 +6,9 @@ const customCursor = document.querySelector(".customCursorFixed");
 const followArea = document.querySelectorAll(".projectContent");
 const page = document.querySelector(".projectDisplayContainer");
 const seeWebsite = document.querySelector(".seeWebsite");
+const title = document.querySelector(".projectFixed .title");
+console.log(title);
+console.log(seeWebsite);
 const cursorText = document.querySelector(".cursorElement");
 
 // Hover animation when entered section
@@ -30,6 +33,8 @@ let rotateLogo = gsap
     cursorText,
     {
       rotation: 0,
+      yPercent: -50,
+      xPercent: -50,
     },
     {
       rotation: 360,
@@ -42,19 +47,20 @@ let rotateLogo = gsap
   .timeScale(1);
 
 let seeWebsiteCursor = (e) => {
-  if (cursorContainer) {
-    gsap.to(cursorContainer, 0.25, {
-      css: {
-        left: e.clientX - 85,
-        top: e.clientY + 85,
-      },
-    });
-    if (!cursorContainer) {
-      return;
-    }
+  // if (cursorContainer) {
+  gsap.to(cursorContainer, 0.25, {
+    css: {
+      left: e.clientX - 85,
+      top: e.clientY + 85,
+    },
+  });
+  if (!cursorContainer) {
+    return;
   }
-  // console.log("tst");
+  console.log("coucou");
 };
+// console.log("tst");
+// };
 
 // Main cursor
 let customCursorFixed = (e) => {
@@ -65,7 +71,7 @@ let customCursorFixed = (e) => {
     },
   });
   if (!customCursor) {
-    return;
+    // return;
   }
 };
 
@@ -118,5 +124,7 @@ if (seeWebsite) {
 }
 
 if (seeWebsite) {
+  title.addEventListener("mousemove", seeWebsiteCursor);
   seeWebsite.addEventListener("mousemove", seeWebsiteCursor);
+  console;
 }

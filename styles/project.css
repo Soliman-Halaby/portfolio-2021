@@ -29,6 +29,14 @@ First section project display title
 .projectDisplay {
   border-bottom: 0;
 }
+
+.projectDisplay {
+  z-index: 99999;
+}
+
+.nozIndex {
+  z-index: 1 !important;
+}
 .projectDisplayContainer {
   flex-direction: column;
   overflow-y: scroll !important;
@@ -45,7 +53,7 @@ First section project display title
 .projectDisplay section {
   width: calc(100vw - 5vmin - 3.5vmax) !important;
   /* background: green; */
-  /* height: calc(95vh - 5vmin - 4.5rem); */
+  height: calc(95vh - 5vmin - 4.5rem);
   height: 84vh;
 }
 
@@ -125,28 +133,51 @@ Second section project display content
 
 ******/
 
-.projectPageContent h1 {
+.title {
   font-size: 7vmin;
   line-height: 6.5vmin;
   text-transform: initial;
   letter-spacing: -2.5%;
   margin-top: 8vmin;
+  position: fixed;
+  z-index: 9999;
+  margin-left: 15vmin;
+  pointer-events: none;
+}
+
+.projectFixed {
+  display: flex;
+}
+.projectPageContent .title {
+  position: fixed;
+}
+
+.centerBlack:nth-child(1) {
+  background-color: red;
+}
+
+.projectFixed .projectDisplay:nth-child(3) .centerBlack {
+  border-left: 2px solid var(--lightGrey);
 }
 
 .centerBlack {
   display: flex;
   justify-content: center;
   align-items: center !important;
-  /* background: #000000; */
+  background: #141414;
+  z-index: 99999;
 }
 
+.projectDetailsOne {
+  margin-top: 25vmin;
+}
 .centerBlack .projectDetails {
   padding-right: 0;
 }
 
 .projectDetails img {
   width: clamp(150px, 100%, 1100px);
-  max-height: 620px;
+  /* max-height: 620px; */
   object-fit: contain;
   margin: 0px 5vmin;
 }
@@ -200,4 +231,11 @@ Second section project display content
 
 .seeWebsite .projectPageContent {
   margin-left: 30vmin;
+}
+
+.gsap-marker-scroller-end,
+.gsap-marker-scroller-start,
+.gsap-marker-start,
+.gsap-marker-end {
+  display: none !important;
 }

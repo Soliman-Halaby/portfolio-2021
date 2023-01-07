@@ -46,8 +46,8 @@ gsap.to(slides, {
     //   inertia: false,
     //   duration: { min: 0.1, max: 0.1 },
     // },
-    end: () => "+=" + projectSection.offsetWidth * (slides.length - 1),
-    // end: "+=22000", // end after scrolling 500px beyond the start
+    end: () => "+=" + projectSection.offsetWidth * (slides.length - 3),
+    // end: "+=2200", // end after scrolling 500px beyond the start
     ease: "power2.easeOut",
   },
 });
